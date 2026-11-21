@@ -126,7 +126,7 @@ nav a:hover{color:#fff}
 .sc-light{position:absolute;left:50%;top:-10%;width:70%;height:90%;transform:translateX(-50%);background:radial-gradient(ellipse at 50% 0%,rgba(230,236,255,.22),transparent 65%);transition:opacity .5s;opacity:.7;pointer-events:none}
 .showcase:hover .sc-light{opacity:1}
 .sc-figure{position:absolute;left:50%;bottom:11%;height:74%;transform:translateX(-50%);perspective:1400px;z-index:3;pointer-events:none}
-.sc-figure img{height:100%;width:auto;display:block;transform:rotateY(var(--ty,0deg));transform-origin:50% 100%;filter:drop-shadow(0 18px 24px rgba(0,0,0,.55)) brightness(var(--tb,1)) drop-shadow(calc(var(--lx,0) * 1px) 0 18px rgba(157,182,255,.25))}
+
 .sc-shadow{position:absolute;left:50%;bottom:10.2%;width:30%;height:4%;transform:translateX(-50%);border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.75),transparent 70%);z-index:2}
 .sc-plat{position:absolute;left:50%;bottom:11%;width:min(62%,460px);aspect-ratio:1;transform:translate(-50%,50%) rotateX(76deg);transform-style:preserve-3d;z-index:1}
 .sc-disc{position:absolute;inset:0;border-radius:50%;background:repeating-conic-gradient(from 0deg,rgba(255,255,255,.06) 0 2deg,transparent 2deg 12deg),conic-gradient(from 0deg,#1a1d2e,#4a5070,#1a1d2e,#3a4060,#1a1d2e,#565c7e,#1a1d2e);box-shadow:inset 0 0 0 10px #10121F,inset 0 0 0 11px rgba(220,230,255,.25),inset 0 0 60px rgba(0,0,0,.7);transform:rotate(var(--pa,0deg))}
@@ -223,7 +223,7 @@ nav a:hover{color:#fff}
 /* WORLD 3 — tech */
 .w-tec{position:relative;overflow:hidden;padding:70px 0 60px;background:linear-gradient(var(--bg),#060A26 30%,#0B0E33 70%,var(--bg))}
 .w-tec canvas{position:absolute;inset:0;width:100%;height:100%}
-.horizon{position:absolute;left:-10%;right:-10%;top:50%;height:340px;background:radial-gradient(ellipse at 50% 100%,rgba(59,92,196,.35),rgba(124,77,219,.18) 40%,transparent 70%);pointer-events:none}
+.horizon{position:absolute;left:-10%;right:-10%;top:30%;height:420px;background:radial-gradient(ellipse at 50% 50%,rgba(59,92,196,.28),rgba(124,77,219,.14) 40%,transparent 68%);pointer-events:none}
 .sky{position:absolute;left:0;right:0;top:20%;height:600px;display:flex;align-items:flex-end;justify-content:center;gap:10px;pointer-events:none;-webkit-mask-image:linear-gradient(#000 60%,transparent);mask-image:linear-gradient(#000 60%,transparent);transform:translateX(calc(var(--mx,0)*-16px));transition:transform .4s}
 .tw{flex:0 0 auto;background-color:#070A22;background-image:repeating-linear-gradient(0deg,rgba(157,182,255,.35) 0 2px,transparent 2px 12px),repeating-linear-gradient(90deg,transparent 0 6px,#070A22 6px 12px);border-top:1px solid rgba(157,182,255,.6);box-shadow:0 0 30px rgba(59,92,196,.25);opacity:.75}
 .tw.v{background-image:repeating-linear-gradient(0deg,rgba(205,189,255,.4) 0 2px,transparent 2px 14px),repeating-linear-gradient(90deg,transparent 0 5px,#070A22 5px 10px);border-top-color:rgba(205,189,255,.6);box-shadow:0 0 30px rgba(124,77,219,.25)}
@@ -283,9 +283,63 @@ nav a:hover{color:#fff}
 .clink:hover{border-color:var(--pearl);background:rgba(238,240,255,.06)}
 
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none;filter:none}.bubble{opacity:1}.steps .bpath{stroke-dashoffset:0}.steps .step{opacity:1}}
+/* ===== unified sky: one navy↔violet background with stars + glitter ===== */
+body{background:#07082A}
+.skybg{position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 15% 10%,rgba(91,42,158,.55),transparent 50%),radial-gradient(ellipse at 85% 35%,rgba(20,42,107,.75),transparent 55%),radial-gradient(ellipse at 30% 80%,rgba(74,35,145,.5),transparent 55%),radial-gradient(ellipse at 80% 95%,rgba(30,58,138,.55),transparent 50%),linear-gradient(165deg,#070B30 0%,#140B3F 45%,#0A1440 100%)}
+#starCv{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.hero,.w-inn,.p-ruya,.p-coach,.p-idea,.w-med,.w-tec,.beyond,.fly-w,.gal,.connect,.w-auc{background:transparent!important}
+.p-ruya{padding-bottom:40px!important}
+.p-coach{padding-top:40px!important}
+/* ===== coach: holographic turntable ===== */
+.showcase{background:radial-gradient(ellipse at 50% 85%,rgba(120,210,255,.18),transparent 45%),radial-gradient(ellipse at 50% 25%,rgba(124,77,219,.25),transparent 60%),rgba(5,8,32,.55)!important;backdrop-filter:blur(4px)}
+#scCv{position:absolute;inset:0;width:100%;height:100%;z-index:4;pointer-events:none}
+.sc-beam{position:absolute;left:50%;bottom:11%;width:min(54%,400px);height:86%;transform:translateX(-50%);clip-path:polygon(28% 0,72% 0,100% 100%,0 100%);background:linear-gradient(to top,rgba(170,232,255,.42),rgba(170,232,255,.08) 70%,transparent);filter:blur(6px);z-index:2;animation:beam 4s ease-in-out infinite;pointer-events:none}
+@keyframes beam{50%{opacity:.6}}
+.sc-rot{position:relative;height:100%;display:inline-block;transform-style:preserve-3d;transform:rotateY(var(--ra,0deg))}
+.sc-rot img{height:100%;width:auto;display:block;backface-visibility:hidden;-webkit-backface-visibility:hidden;filter:drop-shadow(0 0 calc(var(--edge,0) * 30px) rgba(170,232,255,.9)) drop-shadow(0 18px 24px rgba(0,0,0,.5))}
+.sc-back{position:absolute;inset:0;transform:rotateY(180deg);backface-visibility:hidden;-webkit-backface-visibility:hidden;-webkit-mask:url(media/trainer.webp) center/contain no-repeat;mask:url(media/trainer.webp) center/contain no-repeat;background:repeating-linear-gradient(0deg,rgba(255,255,255,.25) 0 1px,transparent 1px 4px),linear-gradient(180deg,#F2FBFF,#9FDBFF 35%,#6F8CFF 75%,#B8A6FF)}
+.sc-scan{position:absolute;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,rgba(190,240,255,.95),transparent);box-shadow:0 0 18px rgba(170,232,255,.9);animation:scanY 3.6s ease-in-out infinite;z-index:5;pointer-events:none}
+@keyframes scanY{0%{top:96%;opacity:0}10%{opacity:1}90%{opacity:1}100%{top:2%;opacity:0}}
+.sc-figure{overflow:visible}
+.sc-figure .sc-rot::after{content:'';position:absolute;inset:0;pointer-events:none;-webkit-mask:url(media/trainer.webp) center/contain no-repeat;mask:url(media/trainer.webp) center/contain no-repeat;background:linear-gradient(180deg,transparent 0%,rgba(170,232,255,.35) 48%,transparent 52%);background-size:100% 260%;animation:sheenY 3.6s ease-in-out infinite;mix-blend-mode:screen;backface-visibility:hidden}
+@keyframes sheenY{from{background-position:0 100%}to{background-position:0 0}}
+.sc-hring{position:absolute;left:50%;bottom:11%;width:min(46%,340px);aspect-ratio:1;margin-left:calc(min(46%,340px) / -2);border-radius:50%;border:1.5px solid rgba(190,240,255,.9);box-shadow:0 0 16px rgba(170,232,255,.8),inset 0 0 12px rgba(170,232,255,.6);transform:translateY(50%) rotateX(76deg);animation:ringUp 4.5s linear infinite;z-index:4;pointer-events:none;opacity:0}
+.sc-hring.r2{animation-delay:1.5s}.sc-hring.r3{animation-delay:3s}
+@keyframes ringUp{0%{bottom:11%;opacity:0;transform:translateY(50%) rotateX(76deg) scale(1.05)}12%{opacity:.95}80%{opacity:.5}100%{bottom:80%;opacity:0;transform:translateY(50%) rotateX(76deg) scale(.55)}}
+.sc-disc{background:repeating-conic-gradient(from 0deg,rgba(255,255,255,.35) 0 1.5deg,transparent 1.5deg 10deg),conic-gradient(from 0deg,#EAF6FF,#B9E3FF,#FFFFFF,#A6D6FF,#F2F0FF,#BFE8FF,#EAF6FF)!important;box-shadow:inset 0 0 0 10px #CFEAFF,inset 0 0 0 12px rgba(120,200,255,.9),inset 0 0 50px rgba(90,160,230,.6),0 0 60px rgba(150,220,255,.6)!important}
+.sc-disc::after{border-color:rgba(80,160,230,.55)!important}
+.sc-ring{border-color:#CFF3FF!important;box-shadow:0 0 22px #9FE3FF,0 0 70px rgba(130,210,255,.85),inset 0 0 22px rgba(160,230,255,.8)!important}
+/* coach video backdrop */
+.vid-stage{position:relative;padding:48px clamp(40px,10vw,110px);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;align-items:center;gap:12px}
+.vid-bg{position:absolute;inset:0;pointer-events:none}
+.vid-bg .aur{position:absolute;inset:-50%;background:conic-gradient(from 0deg,#142A6B,#7C4DDB,#3B5CC4,#9DE3FF,#4A2391,#142A6B);filter:blur(70px);opacity:.45;animation:spinB 20s linear infinite}
+@keyframes spinB{to{transform:rotate(360deg)}}
+.vid-bg .orb{position:absolute;left:50%;top:50%;border-radius:50%;border:1px dashed rgba(190,225,255,.35);transform:translate(-50%,-50%);animation:spinB 30s linear infinite}
+.vid-bg .orb.o2{animation-duration:46s;animation-direction:reverse;border-style:solid;border-color:rgba(205,189,255,.25)}
+.vid-bg .orb::after{content:'';position:absolute;top:-4px;left:50%;width:8px;height:8px;border-radius:50%;background:#DDF4FF;box-shadow:0 0 12px #9FE3FF}
+.vid-bg .grid{position:absolute;left:-20%;right:-20%;bottom:-10%;height:55%;transform:perspective(500px) rotateX(62deg);transform-origin:50% 100%;background-image:linear-gradient(rgba(170,220,255,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(170,220,255,.22) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:linear-gradient(to top,#000,transparent);mask-image:linear-gradient(to top,#000,transparent);animation:gridMove 3s linear infinite}
+@keyframes gridMove{to{background-position:0 44px}}
+.vid-stage .phone,.vid-stage>span{position:relative;z-index:1}
+/* tech + koun spacing */
+.tech-head{margin-bottom:40px!important}
+.fly-w{height:72vh!important;min-height:480px!important}
+.gal{padding:10px 0 20px!important}
+.kawn-t{bottom:24px!important}
+/* gallery: walls with frames + pedestals on the floor, bigger room */
+.w-auc{height:380vh}
+.a-stage{perspective:950px;--W:1500px;--H:900px;--D:5400px;background:radial-gradient(ellipse at 50% 45%,#1A0E44,#07031F 70%)!important}
+@media(max-width:760px){.a-stage{--W:820px!important;--H:820px!important}}
+.a-room{transform:translateZ(calc(var(--p,0) * 4500px)) rotateY(calc(var(--amx,0) * 6deg)) rotateX(calc(var(--amy,0) * -3deg))!important}
+.art{all:unset;cursor:zoom-in;position:absolute;box-sizing:border-box;padding:14px;background:linear-gradient(145deg,#F2EEFF,#8E87B8 40%,#E6E2F6 60%,#6D6596);box-shadow:0 0 90px rgba(124,77,219,.45),0 30px 40px rgba(0,0,0,.6);transition:box-shadow .4s,filter .4s}
+.art:hover,.art:focus-visible{box-shadow:0 0 150px rgba(220,210,255,.85),0 30px 40px rgba(0,0,0,.6);filter:brightness(1.12)}
+.art .pic{display:block;width:100%;height:100%;background-size:cover;background-position:center}
+.art .plq{position:absolute;left:50%;bottom:-50px;transform:translateX(-50%);white-space:nowrap;font:500 13px/1 'Manrope',sans-serif;letter-spacing:.28em;color:#EEF0FF;background:rgba(7,3,31,.75);border:1px solid rgba(205,189,255,.4);padding:9px 13px;direction:ltr}
+.art .spot{position:absolute;left:50%;top:-280px;width:480px;height:300px;margin-left:-240px;background:radial-gradient(ellipse at 50% 100%,rgba(238,240,255,.24),transparent 70%);pointer-events:none}
 </style>
 </head>
 <body>
+<div class="skybg" aria-hidden="true"></div>
+<canvas id="starCv" aria-hidden="true"></canvas>
 <div class="cursor" aria-hidden="true"></div>
 
 <header>
@@ -393,15 +447,20 @@ nav a:hover{color:#fff}
 <div class="coach-grid">
 <div class="showcase reveal" id="showcase" aria-label="المدربة على منصة عرض دوّارة — اسحب للتدوير">
 <div class="sc-light" aria-hidden="true"></div>
-<div class="sc-figure" id="scFig"><img src="media/trainer.webp" alt="المدربة الرياضية الافتراضية" draggable="false"></div>
+<div class="sc-beam" aria-hidden="true"></div>
+<div class="sc-figure" id="scFig"><div class="sc-rot" id="scRot"><img src="media/trainer.webp" alt="المدربة الرياضية الافتراضية" draggable="false"><span class="sc-back" aria-hidden="true"></span></div><span class="sc-scan" aria-hidden="true"></span></div>
 <div class="sc-shadow" aria-hidden="true"></div>
 <div class="sc-plat" aria-hidden="true"><div class="sc-disc" id="scDisc"></div><div class="sc-ring"></div></div>
+<span class="sc-hring" aria-hidden="true"></span><span class="sc-hring r2" aria-hidden="true"></span><span class="sc-hring r3" aria-hidden="true"></span>
+<canvas id="scCv" aria-hidden="true"></canvas>
 <div class="sc-hint">اسحب للتدوير</div>
 </div>
-<div class="coach-vid reveal">
+<div class="coach-vid reveal"><div class="vid-stage">
+<div class="vid-bg" aria-hidden="true"><div class="aur"></div><div class="grid"></div><div class="orb" style="width:420px;height:420px"></div><div class="orb o2" style="width:560px;height:560px"></div></div>
 <div class="phone"><video id="vCoach" src="media/coach.mp4" poster="media/coach.jpg" muted playsinline loop preload="metadata" aria-label="فيديو نموذج تمرين من المدرب الافتراضي"></video>
 <button class="ghost mute" type="button" id="coachMute" aria-pressed="false" aria-label="تشغيل الصوت"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path id="muteX" d="m17 9 4 6m0-6-4 6"/></svg></button></div>
 <span style="font-size:14px;color:var(--silver)">نموذج تمرين</span>
+</div>
 </div>
 </div>
 </div>
@@ -481,7 +540,7 @@ nav a:hover{color:#fff}
 <div class="sky" aria-hidden="true"><div class="tw" style="width:46px;height:260px"></div><div class="tw v" style="width:70px;height:380px"></div><div class="tw" style="width:38px;height:200px"></div><div class="tw" style="width:90px;height:520px"></div><div class="tw v" style="width:52px;height:300px"></div><div class="tw" style="width:64px;height:440px"></div><div class="tw v" style="width:110px;height:590px"></div><div class="tw" style="width:58px;height:340px"></div><div class="tw v" style="width:42px;height:240px"></div><div class="tw" style="width:84px;height:480px"></div><div class="tw" style="width:36px;height:280px"></div><div class="tw v" style="width:66px;height:400px"></div></div>
 <div class="scan" aria-hidden="true"></div>
 <div class="wrap" style="position:relative;z-index:2;pointer-events:none">
-<div class="reveal" style="text-align:center;margin-bottom:clamp(200px,26vw,320px)">
+<div class="reveal tech-head" style="text-align:center">
 <h2 class="world-t">التقنية والذكاء الاصطناعي</h2>
 <p class="world-en">TECH &amp; ARTIFICIAL INTELLIGENCE</p>
 <p style="margin:16px 0 0;font-size:13px;color:var(--muted)">حرّك المؤشر داخل الشبكة</p>
@@ -635,7 +694,7 @@ function burst(){ burstUntil = performance.now() + 1500; for (const p of parts){
 flyCv.addEventListener('pointerdown', burst); $('#burstBtn').addEventListener('click', burst);
 function drawFly(t){
   const {x:c, w, h} = F;
-  c.globalCompositeOperation = 'source-over'; c.fillStyle = reduce ? '#0D0730' : 'rgba(13,7,48,.26)'; c.fillRect(0,0,w,h);
+  if (reduce) c.clearRect(0,0,w,h); else { c.globalCompositeOperation = 'destination-out'; c.fillStyle = 'rgba(0,0,0,.28)'; c.fillRect(0,0,w,h); } c.globalCompositeOperation = 'source-over';
   const r = flyCv.getBoundingClientRect(), mx = mouse.x - r.left, my = mouse.y - r.top, has = mx>0 && my>0 && mx<w && my<h;
   const tx = has ? mx : w/2 + Math.sin(t*.00031)*w*.26, ty = has ? my : h*.4 + Math.sin(t*.00053)*h*.12;
   const px = fcx; fcx += (tx-fcx)*.035; fcy += (ty-fcy)*.035; fang += (((fcx-px)*.04) - fang)*.08;
@@ -664,56 +723,51 @@ $('#lbNext').addEventListener('click', () => { lbI = (lbI + 1) % lbList.length; 
 lbCv.addEventListener('click', () => lbCv.classList.toggle('zoom'));
 lb.addEventListener('click', e => { if (e.target === lb) closeLB(); });
 lb.addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); });
-/* AUCTION — museum gallery: pieces on classic gold stands */
-const small = innerWidth < 760, SX = small ? 190 : 340;
+/* AUCTION — museum gallery: framed works on the walls, sculptural pieces on gold stands */
+const small = innerWidth < 760, FY = small ? 410 : 450, AX = small ? 170 : 300;
 const LOTS = [
-  {src:'media/lots/eyes.jpg',       ar:1.33},
-  {src:'media/lots/butterfly.webp', cut:true, ar:1,   pw:220, ph:150},
-  {src:'media/lots/redshoes.jpg',   ar:1.5},
-  {src:'media/lots/waterframe.jpg', ar:1.23},
-  {src:'media/lots/mermaid.webp',   cut:true, ar:1.33, pw:200, ph:170},
-  {src:'media/lots/melting.jpg',    ar:1.78},
-  {src:'media/lots/clock.jpg',      ar:1.23},
-  {src:'media/lots/pearl.webp',     cut:true, ar:1.33, pw:210, ph:160},
-  {src:'media/lots/volta.jpg',      ar:1.41},
-  {src:'media/lots/jelly.jpg',      ar:1.33},
-  {src:'media/lots/wave.webp',      cut:true, ar:1.49, pw:170, ph:170},
-  {src:'media/lots/ballerinas.jpg', ar:1.5},
-  {src:'media/lots/planets.jpg',    ar:1.3},
-  {src:'media/lots/spiral.webp',    cut:true, ar:1,   pw:200, ph:200}
+  {wall:'L', at:500,  top:170, w:360, src:'media/lots/eyes.jpg', ar:1.33, tilt:-2},
+  {wall:'R', at:900,  top:130, w:320, src:'media/lots/redshoes.jpg', ar:1.5, tilt:2},
+  {ped:true, x:-AX, z:-1350, w:240, ar:1, ph:160, src:'media/lots/butterfly.webp'},
+  {wall:'L', at:1700, top:120, w:280, src:'media/lots/melting.jpg', ar:1.78, tilt:2.5},
+  {wall:'R', at:2050, top:190, w:400, src:'media/lots/waterframe.jpg', ar:1.23, tilt:-2.5},
+  {ped:true, x:AX, z:-2500, w:220, ar:1.33, ph:180, src:'media/lots/mermaid.webp'},
+  {wall:'L', at:2900, top:170, w:380, src:'media/lots/clock.jpg', ar:1.23, tilt:-1.5},
+  {wall:'R', at:3200, top:150, w:330, src:'media/lots/volta.jpg', ar:1.41, tilt:2},
+  {ped:true, x:-AX, z:-3600, w:230, ar:1.33, ph:170, src:'media/lots/pearl.webp'},
+  {wall:'L', at:4050, top:160, w:360, src:'media/lots/jelly.jpg', ar:1.33, tilt:2},
+  {wall:'R', at:4350, top:140, w:320, src:'media/lots/ballerinas.jpg', ar:1.5, tilt:-2},
+  {ped:true, x:AX, z:-4500, w:190, ar:1.49, ph:170, src:'media/lots/wave.webp'},
+  {wall:'L', at:4800, top:190, w:340, src:'media/lots/planets.jpg', ar:1.3, tilt:-2},
+  {ped:true, x:-AX*.8, z:-5000, w:210, ar:1, ph:200, src:'media/lots/spiral.webp'}
 ];
-LOTS.forEach((l,i) => { const left = i % 2 === 0; l.x = left ? -SX : SX; l.z = -700 - i*250; l.ry = left ? 8 : -8; });
-LOTS.push({src:'media/lots/statue.jpg', ar:1.78, x:0, z:-4250, ry:0, big:true});
-const lotList = LOTS.map((l,i) => ({t: l.big ? 'THE RAREST' : 'LOT ' + String(i+1).padStart(2,'0'), s:'مثال توضيحي · المزاد قيد التنفيذ', src:l.src, cut:!!l.cut}));
-const room = $('#aRoom');
+const lotList = LOTS.map((l,i) => ({t:'LOT ' + String(i+1).padStart(2,'0'), s:'مثال توضيحي · المزاد قيد التنفيذ', src:l.src, cut:!!l.ped}));
+lotList.push({t:'THE RAREST', s:'أندر الأعمال · مثال توضيحي', src:'media/lots/statue.jpg'});
+const room = $('#aRoom'), wallH = {L:'', R:''};
 LOTS.forEach((l,i) => {
-  const name = lotList[i].t, b = document.createElement('button');
-  b.type = 'button'; b.className = 'pc'; b.dataset.i = i; b.setAttribute('aria-label', name);
-  b.style.transform = `translate3d(${l.x}px,${small ? 340 : 360}px,${l.z}px) rotateY(${l.ry}deg)`;
-  let html;
-  if (l.cut){
-    const w = l.pw, h = Math.round(w * l.ar);
-    html = `<img class="piece" src="${l.src}" alt="" style="width:${w}px;height:${h}px;object-fit:contain">
-      <span class="ped"><span class="cap gold"></span><span class="cap2 gold"></span><span class="shaft" style="--ph:${l.ph}px"></span><span class="base gold"></span><span class="base2 gold"></span></span>`;
+  const name = lotList[i].t;
+  if (l.ped){
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'pc'; b.dataset.i = i; b.setAttribute('aria-label', name);
+    b.style.transform = `translate3d(${l.x}px,${FY}px,${l.z}px)`;
+    const h = Math.round(l.w * l.ar);
+    b.innerHTML = `<span class="unit"><img class="piece" src="${l.src}" alt="" style="width:${l.w}px;height:${h}px;object-fit:contain"><span class="ped"><span class="cap gold"></span><span class="cap2 gold"></span><span class="shaft" style="--ph:${l.ph}px"></span><span class="base gold"></span><span class="base2 gold"></span></span><span class="plq gold">${name}</span><span class="floorglow" aria-hidden="true"></span></span>`;
+    room.appendChild(b);
   } else {
-    const w = l.big ? 270 : (l.ar > 1.6 ? 200 : 240), h = Math.round(w * l.ar);
-    html = `<span class="gframe gold" style="width:${w + 28}px;height:${h + 28}px"><span class="pic" style="background-image:url('${l.src}')"></span></span>
-      <span class="easel" aria-hidden="true"><i class="gold"></i><i class="gold"></i><i class="gold"></i><b class="gold"></b></span>`;
+    const h = Math.round(l.w * l.ar), side = l.wall === 'L' ? 'left' : 'right';
+    wallH[l.wall] += `<button class="art" type="button" data-i="${i}" aria-label="${name}" style="${side}:${l.at}px;top:${l.top}px;width:${l.w + 28}px;height:${h + 28}px;transform:rotate(${l.tilt}deg)"><span class="spot" aria-hidden="true"></span><span class="pic" style="background-image:url('${l.src}')"></span><span class="plq">${name}</span></button>`;
   }
-  b.innerHTML = `<span class="unit">${html}<span class="plq gold">${name}</span><span class="floorglow" aria-hidden="true"></span></span>`;
-  room.appendChild(b);
 });
-$('#wallB').innerHTML = `<p class="serif" style="margin:0;font-size:42px;font-weight:300;letter-spacing:.2em;color:rgba(255,236,180,.85);direction:ltr">THE RARE COLLECTION</p>`;
-/* a few glitter planets for the cosmic mood */
+$('#wallL').innerHTML = wallH.L; $('#wallR').innerHTML = wallH.R;
+$('#wallB').innerHTML = `<button class="art" type="button" data-i="${LOTS.length}" aria-label="THE RAREST" style="position:relative;width:330px;height:560px"><span class="spot" aria-hidden="true"></span><span class="pic" style="background-image:url('media/lots/statue.jpg')"></span><span class="plq">THE RAREST</span></button>`;
 const PL = [
-  {x:-420,y:-190,z:-900, r:100, c1:'#C9A6FF', c2:'#4A2391', ring:1},
-  {x:400, y:-270,z:-1700,r:70,  c1:'#9DB6FF', c2:'#142A6B'},
-  {x:-380,y:-260,z:-2600,r:60,  c1:'#F3C6FF', c2:'#7C4DDB'},
-  {x:420, y:-180,z:-3300,r:110, c1:'#D2B8FF', c2:'#3A1C78', ring:1},
-  {x:-60, y:-290,z:-3900,r:50,  c1:'#A9C0FF', c2:'#142A6B'}
+  {x:-560,y:-300,z:-1000,r:110, c1:'#C9A6FF', c2:'#4A2391', ring:1},
+  {x:540, y:-320,z:-2000,r:70,  c1:'#9DB6FF', c2:'#142A6B'},
+  {x:-80, y:-360,z:-2800,r:50,  c1:'#F3C6FF', c2:'#7C4DDB'},
+  {x:560, y:-290,z:-3800,r:130, c1:'#D2B8FF', c2:'#3A1C78', ring:1},
+  {x:-520,y:-320,z:-4700,r:80,  c1:'#A9C0FF', c2:'#142A6B'}
 ];
 room.insertAdjacentHTML('beforeend', PL.map((p,i) => `<span class="planet glit ${p.ring ? 'ringed' : ''}" aria-hidden="true" style="width:${p.r}px;height:${p.r}px;margin:${-p.r/2}px 0 0 ${-p.r/2}px;--c1:${p.c1};--c2:${p.c2};transform:translate3d(${p.x}px,${p.y}px,${p.z}px);animation-delay:${-i*.4}s"></span>`).join(''));
-$$('#aRoom .pc').forEach(b => b.addEventListener('click', () => openLB(lotList, +b.dataset.i, b)));
+$$('#aRoom [data-i]').forEach(b => b.addEventListener('click', () => openLB(lotList, +b.dataset.i, b)));
 const aucSec = $('#auction'), aStage = $('#aStage'); visIO.observe(aucSec);
 let aucT = 0, aucC = 0, amx = 0, amy = 0;
 function aucTarget(){ const r = aucSec.getBoundingClientRect(), total = r.height - innerHeight; aucT = total > 0 ? Math.min(1, Math.max(0, -r.top/total)) : 0; }
@@ -724,31 +778,37 @@ function stepAucSmooth(){
   aStage.style.setProperty('--p', aucC.toFixed(4)); aStage.style.setProperty('--amx', amx.toFixed(3)); aStage.style.setProperty('--amy', amy.toFixed(3));
 }
 addEventListener('scroll', aucTarget, {passive:true}); aucTarget(); aucC = aucT; stepAucSmooth();
-const stops = [0, ...LOTS.map(l => Math.min(1, Math.max(0, (-l.z - 620) / 3700))), 1].sort((a,b) => a-b);
+const depth = l => l.ped ? -l.z : l.at + l.w/2;
+const stops = [0, ...LOTS.map(l => Math.min(1, Math.max(0, (depth(l) - 750) / 4500))), 1].sort((a,b) => a-b);
 function goStop(dir){ const cur = aucT; let t = dir > 0 ? stops.find(x => x > cur + .01) : [...stops].reverse().find(x => x < cur - .01); if (t === undefined) t = dir > 0 ? 1 : 0; const top = aucSec.getBoundingClientRect().top + scrollY; scrollTo({top: top + t * (aucSec.offsetHeight - innerHeight), behavior:'smooth'}); }
 $('#aNext').addEventListener('click', () => goStop(1)); $('#aPrev').addEventListener('click', () => goStop(-1));
 addEventListener('keydown', e => { const r = aucSec.getBoundingClientRect(); if (r.top > 1 || r.bottom < innerHeight - 1 || lb.classList.contains('open')) return; if (e.key === 'ArrowLeft'){ e.preventDefault(); goStop(1); } if (e.key === 'ArrowRight'){ e.preventDefault(); goStop(-1); } });
 
-/* COACH — rotating showcase platform */
-const sc = $('#showcase'), scFig = $('#scFig'), disc = $('#scDisc'); visIO.observe(sc);
-let pa = 0, pv = 0, scDrag = false, scX = 0, tilt = 0, lastT = performance.now(), resumeAt = 0;
+/* COACH — holographic turntable */
+const sc = $('#showcase'), scRot = $('#scRot'), disc = $('#scDisc'), scCv = $('#scCv'); visIO.observe(sc);
+let SC = fit(scCv), sparks = [];
+let pa = 0, pv = 0, scDrag = false, scX = 0, lastT = performance.now(), resumeAt = 0, autoK = 1;
 sc.addEventListener('pointerdown', e => { scDrag = true; scX = e.clientX; sc.classList.add('drag'); pv = 0; });
-addEventListener('pointermove', e => { if (!scDrag) return; const dx = e.clientX - scX; scX = e.clientX; pa += dx * .5; pv = dx * .5; tilt = Math.max(-16, Math.min(16, tilt + dx * .25)); });
+addEventListener('pointermove', e => { if (!scDrag) return; const dx = e.clientX - scX; scX = e.clientX; pa += dx * .6; pv = dx * .6; });
 ['pointerup','pointercancel'].forEach(ev => addEventListener(ev, () => { if (scDrag){ scDrag = false; sc.classList.remove('drag'); resumeAt = performance.now() + 900; } }));
-let autoK = 1;
 function stepShowcase(now){
   const dt = Math.min(64, now - lastT); lastT = now;
-  if (!scDrag){
-    autoK += ((now > resumeAt ? 1 : 0) - autoK) * .03;
-    pv *= .94; pa += pv + (reduce ? 0 : autoK * 18 * dt / 1000);
-    tilt *= .92;
-  }
+  if (!scDrag){ autoK += ((now > resumeAt ? 1 : 0) - autoK) * .03; pv *= .94; pa += pv + (reduce ? 0 : autoK * 18 * dt / 1000); }
   disc.style.setProperty('--pa', pa.toFixed(2) + 'deg');
-  const lx = Math.sin(pa * Math.PI / 180) * 14;
-  scFig.style.setProperty('--ty', tilt.toFixed(2) + 'deg');
-  scFig.style.setProperty('--lx', lx.toFixed(1));
-  scFig.style.setProperty('--tb', (1 + Math.cos(pa * Math.PI / 180) * .04).toFixed(3));
+  scRot.style.setProperty('--ra', pa.toFixed(2) + 'deg');
+  const edge = 1 - Math.abs(Math.cos(pa * Math.PI / 180));
+  scRot.style.setProperty('--edge', edge.toFixed(3));
+  /* light particles rising from the platform */
+  const {x:c, w, h} = SC; c.clearRect(0,0,w,h);
+  const cx = w/2, cy = h*.89, rx = Math.min(w*.31, 230), ry = rx*.24;
+  const n = 2 + Math.round(edge * 10);
+  for (let i=0;i<n;i++){ const a = Math.random()*6.283; sparks.push({x:cx + Math.cos(a)*rx*(.6+Math.random()*.4), y:cy + Math.sin(a)*ry, vy:-(0.6 + Math.random()*1.8), vx:(Math.random()-.5)*.3, life:1, s:Math.random()*2+.6}); }
+  c.globalCompositeOperation = 'lighter';
+  sparks = sparks.filter(p => (p.life -= .008) > 0);
+  for (const p of sparks){ p.x += p.vx; p.y += p.vy; c.fillStyle = `rgba(${170 + (p.s*20|0)},235,255,${p.life*.85})`; c.beginPath(); c.arc(p.x,p.y,p.s,0,6.283); c.fill(); }
+  c.globalCompositeOperation = 'source-over';
 }
+
 const vCoach = $('#vCoach');
 new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting && !reduce) vCoach.play().catch(()=>{}); else vCoach.pause(); }), {threshold:.4}).observe(vCoach);
 $('#coachMute').addEventListener('click', e => { vCoach.muted = !vCoach.muted; if (!vCoach.muted) vCoach.play().catch(()=>{}); e.currentTarget.setAttribute('aria-pressed', !vCoach.muted); e.currentTarget.setAttribute('aria-label', vCoach.muted ? 'تشغيل الصوت' : 'كتم الصوت'); $('#muteX').style.display = vCoach.muted ? '' : 'none'; });
@@ -796,19 +856,33 @@ function startSound(){ try {
 function stopSound(){ if (!audio) return; const a = audio; audio = null; clearInterval(a.timer); try { a.out.gain.cancelScheduledValues(a.ctx.currentTime); a.out.gain.linearRampToValueAtTime(0, a.ctx.currentTime + 1.5); setTimeout(() => a.ctx.close(), 1700); } catch(e){} }
 $('#soundBtn').addEventListener('click', e => { const on = e.currentTarget.getAttribute('aria-pressed') !== 'true'; e.currentTarget.setAttribute('aria-pressed', on); $('#soundLbl').textContent = on ? 'إيقاف الموسيقى' : 'تشغيل الموسيقى'; on ? startSound() : stopSound(); });
 
+/* unified starry sky with glitter */
+const starCv = $('#starCv'); let S = fit(starCv);
+let skyStars = [], glints = [];
+function initSky(){ skyStars = Array.from({length: Math.round(S.w*S.h/5200)}, () => ({x:Math.random()*S.w, y:Math.random()*S.h, r:Math.random()*1.1+.2, p:Math.random()*6.28, sp:Math.random()*.002+.0006})); glints = Array.from({length:26}, () => ({x:Math.random()*S.w, y:Math.random()*S.h, s:Math.random()*5+3, p:Math.random()*6.28, sp:Math.random()*.0016+.0008, vy:-(Math.random()*.08+.02), hue: Math.random() < .5 ? '205,189,255' : '170,215,255'})); }
+initSky();
+function drawSky(t){
+  const {x:c, w, h} = S; c.clearRect(0,0,w,h);
+  for (const s of skyStars){ const a = .25 + .55*(.5+.5*Math.sin(t*s.sp + s.p)); c.fillStyle = `rgba(230,232,255,${a})`; c.fillRect(s.x, s.y, s.r, s.r); }
+  for (const g of glints){ g.y += g.vy; if (g.y < -10){ g.y = h + 10; g.x = Math.random()*w; } const a = Math.max(0, Math.sin(t*g.sp + g.p)); if (a < .05) continue; const L = g.s*(.6+a);
+    c.strokeStyle = `rgba(${g.hue},${a*.9})`; c.lineWidth = 1; c.beginPath(); c.moveTo(g.x-L,g.y); c.lineTo(g.x+L,g.y); c.moveTo(g.x,g.y-L); c.lineTo(g.x,g.y+L); c.stroke();
+    c.fillStyle = `rgba(255,255,255,${a})`; c.beginPath(); c.arc(g.x,g.y,1.2,0,6.283); c.fill(); }
+}
+
 /* resize */
-let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { H = fit(heroCv); N = fit(netCv); F = fit(flyCv); initNet(); initFly(); }, 150); });
+let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { H = fit(heroCv); N = fit(netCv); F = fit(flyCv); S = fit(starCv); SC = fit(scCv); initNet(); initFly(); initSky(); }, 150); });
 
 /* main loop */
 function loop(t){
   requestAnimationFrame(loop);
+  drawSky(t);
   if (vis.get(heroCv)) drawHero(t);
   if (vis.get(netCv)) drawNet(t);
   if (vis.get(flyCv)) drawFly(t);
   if (vis.get(aucSec)) stepAucSmooth();
   if (vis.get(sc)) stepShowcase(t);
 }
-if (reduce){ drawHero(0); drawNet(0); drawFly(0); } else requestAnimationFrame(loop);
+if (reduce){ drawSky(0); drawHero(0); drawNet(0); drawFly(0); } else requestAnimationFrame(loop);
 }
 </script>
 </body>
