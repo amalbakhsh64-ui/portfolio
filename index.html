@@ -131,6 +131,21 @@ nav a:hover{color:#fff}
 .sc-cta{position:absolute;left:0;right:0;bottom:18px;z-index:6;display:flex;flex-direction:column;align-items:center;gap:8px}
 .sc-cta small{color:var(--muted);font-size:12px}
 
+
+.sc-views{position:relative;height:100%;aspect-ratio:600/1100;transform:scaleX(var(--sq,1));transform-origin:50% 100%}
+.sc-views img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%;opacity:0;filter:drop-shadow(0 18px 22px rgba(0,0,0,.5)) drop-shadow(0 0 22px rgba(170,232,255,.18))}
+.sc-views img:first-child{opacity:1}
+.sc-figure{transition:transform .9s cubic-bezier(.2,.8,.2,1);transform-origin:50% 0}
+.showcase.zoom .sc-figure{transform:translateX(-50%) scale(1.55) translateY(-6%)}
+.showcase.zoom .sc-plat,.showcase.zoom .sc-shadow,.showcase.zoom .sc-hring{opacity:.25}
+#sc3d{position:absolute;inset:0;width:100%;height:100%;z-index:3;display:none}
+.showcase.has3d #sc3d{display:block}.showcase.has3d .sc-figure{display:none}
+.sc-tools{position:absolute;top:14px;left:14px;z-index:6;display:flex;gap:8px}
+.sc-tools .ghost{background:rgba(7,8,42,.55);padding:0;width:44px}
+.sc-cta{top:14px!important;bottom:auto!important;left:auto!important;right:14px!important;align-items:flex-end!important}
+.sc-cta .cta{min-height:44px;padding:0 20px;font-size:14px}
+.sc-cta small{display:none}
+@media(max-width:600px){.sc-cta .cta{padding:0 14px;font-size:13px}}
 /* AUCTION — 360° room, blurred until entered */
 .auc{position:relative;height:100vh;min-height:620px;overflow:hidden;touch-action:pan-y;user-select:none;-webkit-user-select:none;background:#090426}
 .view{position:absolute;inset:0;perspective:700px;transition:filter .8s ease}
@@ -254,6 +269,7 @@ a.cta{text-decoration:none}
 @media(max-width:760px){.showcase,.holo{backdrop-filter:none}}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.bubble{opacity:1}}
 </style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
 </head>
 <body>
 <div class="skybg" aria-hidden="true"></div>
@@ -404,12 +420,14 @@ a.cta{text-decoration:none}
 </div>
 <div class="showcase reveal" id="showcase" aria-label="المدربة على منصة عرض دوّارة">
 <div class="sc-beam" aria-hidden="true"></div>
-<div class="sc-figure"><div class="sc-rot" id="scRot"><img src="media/trainer.webp" alt="المدربة الرياضية الافتراضية" draggable="false"><span class="sc-back" aria-hidden="true"></span></div><span class="sc-scan" aria-hidden="true"></span></div>
+<div class="sc-figure" id="scFig"><div class="sc-views" id="scViews" role="img" aria-label="المدربة الرياضية الافتراضية"><img src="media/trainer-front.webp" alt="" draggable="false"><img src="media/trainer-right.webp" alt="" draggable="false"><img src="media/trainer-back.webp" alt="" draggable="false"><img src="media/trainer-left.webp" alt="" draggable="false"></div><span class="sc-scan" aria-hidden="true"></span></div>
+<canvas id="sc3d" aria-hidden="true"></canvas>
 <div class="sc-shadow" aria-hidden="true"></div>
 <div class="sc-plat" aria-hidden="true"><div class="sc-disc" id="scDisc"></div><div class="sc-ring"></div></div>
 <span class="sc-hring" aria-hidden="true"></span><span class="sc-hring r2" aria-hidden="true"></span><span class="sc-hring r3" aria-hidden="true"></span>
 <canvas id="scCv" aria-hidden="true"></canvas>
-<div class="sc-cta"><button class="cta" type="button" id="coachVidBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg>شاهد نموذج التمرين</button><small>اسحب المنصة للتدوير</small></div>
+<div class="sc-tools"><button class="ghost" type="button" id="scPause" aria-pressed="false" aria-label="إيقاف الدوران"><svg id="scPauseIco" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5h3v14H7zM14 5h3v14h-3z"/></svg></button><button class="ghost" type="button" id="scZoom" aria-pressed="false" aria-label="تقريب"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4M11 8v6M8 11h6"/></svg></button></div>
+<div class="sc-cta"><button class="cta" type="button" id="coachVidBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg>شاهد نموذج التمرين</button><small>اسحب يمين ويسار للتدوير</small></div>
 </div>
 </div>
 </section>
@@ -622,25 +640,55 @@ vm.addEventListener('click', e => { if (e.target === vm) closeVM(); });
 $$('#aiRow .vtile').forEach(b => b.addEventListener('click', () => openVM(b.dataset.v, b)));
 new IntersectionObserver(es => es.forEach(en => $$('#aiRow video').forEach(v => en.isIntersecting && !reduce ? v.play().catch(()=>{}) : v.pause())), {threshold:.25}).observe($('#aiRow'));
 
-/* coach turntable */
-const sc = $('#showcase'), scRot = $('#scRot'), disc = $('#scDisc'), scCv = $('#scCv'); visIO.observe(sc);
-let SC = fit(scCv), sparks = [], pa = 0, pv = 0, scDrag = false, scX = 0, scMoved = 0, lastT = performance.now(), resumeAt = 0, autoK = 1;
+/* coach turntable: four real views (front, side, back, side) — or a real 3D model if media/trainer.glb exists */
+const sc = $('#showcase'), disc = $('#scDisc'), scCv = $('#scCv'), views = $$('#scViews img'), scViews = $('#scViews'); visIO.observe(sc);
+let SC = fit(scCv), sparks = [], pa = 0, pv = 0, scDrag = false, scX = 0, scMoved = 0, lastT = performance.now(), resumeAt = 0, autoK = 1, scPaused = false, model3d = null;
 sc.addEventListener('pointerdown', e => { if (e.target.closest('button')) return; scDrag = true; scMoved = 0; scX = e.clientX; sc.classList.add('drag'); pv = 0; });
-addEventListener('pointermove', e => { if (!scDrag) return; const dx = e.clientX - scX; scX = e.clientX; scMoved += Math.abs(dx); pa += dx*.6; pv = dx*.6; });
-['pointerup','pointercancel'].forEach(ev => addEventListener(ev, e => { if (!scDrag) return; scDrag = false; sc.classList.remove('drag'); resumeAt = performance.now() + 900; if (ev === 'pointerup' && scMoved < 6 && sc.contains(e.target)) openVM('media/coach.mp4', $('#coachVidBtn')); }));
+addEventListener('pointermove', e => { if (!scDrag) return; const dx = e.clientX - scX; scX = e.clientX; scMoved += Math.abs(dx); pa += dx*.5; pv = dx*.5; });
+['pointerup','pointercancel'].forEach(ev => addEventListener(ev, e => { if (!scDrag) return; scDrag = false; sc.classList.remove('drag'); resumeAt = performance.now() + 900; if (ev === 'pointerup' && scMoved < 6 && sc.contains(e.target) && !e.target.closest('button')) openVM('media/coach.mp4', $('#coachVidBtn')); }));
 $('#coachVidBtn').addEventListener('click', e => openVM('media/coach.mp4', e.currentTarget));
+$('#scPause').addEventListener('click', e => { scPaused = !scPaused; e.currentTarget.setAttribute('aria-pressed', scPaused); e.currentTarget.setAttribute('aria-label', scPaused ? 'تشغيل الدوران' : 'إيقاف الدوران'); $('#scPauseIco').innerHTML = scPaused ? '<path d="M7 4l13 8-13 8z"/>' : '<path d="M7 5h3v14H7zM14 5h3v14h-3z"/>'; if (!scPaused) resumeAt = performance.now(); });
+$('#scZoom').addEventListener('click', e => { const z = sc.classList.toggle('zoom'); e.currentTarget.setAttribute('aria-pressed', z); e.currentTarget.setAttribute('aria-label', z ? 'تصغير' : 'تقريب'); });
+const centers = [0, 90, 180, 270];
+function setViews(a){
+  a = ((a % 360) + 360) % 360; let top = 0;
+  views.forEach((img, i) => { let d = Math.abs(a - centers[i]); d = Math.min(d, 360 - d); const w = d <= 30 ? 1 : Math.max(0, (60 - d) / 30); img.style.opacity = w.toFixed(3); top = Math.max(top, w); });
+  scViews.style.setProperty('--sq', (0.93 + 0.07 * top).toFixed(3));
+}
 function stepShowcase(now){
   const dt = Math.min(64, now - lastT); lastT = now;
-  if (!scDrag){ autoK += ((now > resumeAt ? 1 : 0) - autoK) * .03; pv *= .94; pa += pv + (reduce ? 0 : autoK * 18 * dt / 1000); }
-  disc.style.setProperty('--pa', pa.toFixed(2) + 'deg'); scRot.style.setProperty('--ra', pa.toFixed(2) + 'deg');
-  const edge = 1 - Math.abs(Math.cos(pa * Math.PI / 180)); scRot.style.setProperty('--edge', edge.toFixed(3));
+  if (!scDrag){ autoK += ((now > resumeAt && !scPaused ? 1 : 0) - autoK) * .04; pv *= .94; pa += pv + (reduce ? 0 : autoK * 18 * dt / 1000); }
+  disc.style.setProperty('--pa', pa.toFixed(2) + 'deg');
+  if (model3d) model3d(pa); else setViews(pa);
   const {x:c, w, h} = SC; c.clearRect(0,0,w,h);
   const cx = w/2, cy = h*.89, rx = Math.min(w*.31, 230), ry = rx*.24;
-  for (let i = 0, n = 2 + Math.round(edge*8); i < n; i++){ const a = Math.random()*6.283; sparks.push({x:cx + Math.cos(a)*rx*(.6+Math.random()*.4), y:cy + Math.sin(a)*ry, vy:-(.6 + Math.random()*1.8), vx:(Math.random()-.5)*.3, life:1, s:Math.random()*2+.6}); }
-  c.globalCompositeOperation = 'lighter'; sparks = sparks.filter(p => (p.life -= .008) > 0);
-  for (const p of sparks){ p.x += p.vx; p.y += p.vy; c.fillStyle = `rgba(190,235,255,${p.life*.85})`; c.beginPath(); c.arc(p.x,p.y,p.s,0,6.283); c.fill(); }
+  for (let i = 0; i < 2; i++){ const a = Math.random()*6.283; sparks.push({x:cx + Math.cos(a)*rx*(.6+Math.random()*.4), y:cy + Math.sin(a)*ry, vy:-(.5 + Math.random()*1.5), vx:(Math.random()-.5)*.3, life:1, s:Math.random()*1.8+.5}); }
+  c.globalCompositeOperation = 'lighter'; sparks = sparks.filter(p => (p.life -= .009) > 0);
+  for (const p of sparks){ p.x += p.vx; p.y += p.vy; c.fillStyle = `rgba(190,235,255,${p.life*.7})`; c.beginPath(); c.arc(p.x,p.y,p.s,0,6.283); c.fill(); }
   c.globalCompositeOperation = 'source-over';
 }
+setViews(0);
+/* real 3D: drop a GLB/GLTF of the trainer at media/trainer.glb and it loads automatically */
+(async () => { try {
+  const head = await fetch('media/trainer.glb', {method:'HEAD'}); if (!head.ok) return;
+  const THREE = await import('three'); const {GLTFLoader} = await import('three/addons/loaders/GLTFLoader.js');
+  const cv = $('#sc3d'), r = new THREE.WebGLRenderer({canvas:cv, antialias:true, alpha:true});
+  r.setPixelRatio(Math.min(devicePixelRatio, 2)); r.outputColorSpace = THREE.SRGBColorSpace; r.toneMapping = THREE.ACESFilmicToneMapping; r.shadowMap.enabled = true;
+  const scene3 = new THREE.Scene(), cam = new THREE.PerspectiveCamera(30, 1, .1, 100);
+  scene3.add(new THREE.HemisphereLight(0xdfe8ff, 0x1a1530, .9));
+  const key = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(2.5, 4, 3); key.castShadow = true; scene3.add(key);
+  const rim = new THREE.DirectionalLight(0x9fdcff, 1.6); rim.position.set(-3, 3, -3); scene3.add(rim);
+  const ground = new THREE.Mesh(new THREE.CircleGeometry(1, 64), new THREE.ShadowMaterial({opacity:.45})); ground.rotation.x = -Math.PI/2; ground.receiveShadow = true; scene3.add(ground);
+  const gltf = await new GLTFLoader().loadAsync('media/trainer.glb'), obj = gltf.scene;
+  obj.traverse(o => { if (o.isMesh){ o.castShadow = true; } });
+  const box = new THREE.Box3().setFromObject(obj), size = box.getSize(new THREE.Vector3()), k = 1.75 / size.y; obj.scale.setScalar(k);
+  const b2 = new THREE.Box3().setFromObject(obj), c2 = b2.getCenter(new THREE.Vector3()); obj.position.set(-c2.x, -b2.min.y, -c2.z);
+  const pivot = new THREE.Group(); pivot.add(obj); scene3.add(pivot);
+  function resize3(){ const w = cv.clientWidth, h = cv.clientHeight; r.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); }
+  resize3(); addEventListener('resize', resize3);
+  sc.classList.add('has3d');
+  model3d = a => { pivot.rotation.y = a * Math.PI / 180; const z = sc.classList.contains('zoom'); cam.position.set(0, z ? 1.45 : 1.05, z ? 2.6 : 5.2); cam.lookAt(0, z ? 1.4 : .9, 0); r.render(scene3, cam); };
+} catch (e) { /* stays on the four-view presentation */ } })();
 
 /* lightbox */
 const lb = $('#lb'), lbCv = $('#lbCv'); let lbList = [], lbI = 0, lbReturn = null;
