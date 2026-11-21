@@ -267,6 +267,22 @@ a.cta{text-decoration:none}
 @keyframes trace{to{stroke-dashoffset:-2280}}
 .tri .glow{fill:none;stroke:rgba(190,175,255,.9);stroke-width:4;animation:breath 3s ease-in-out infinite}
 @keyframes breath{50%{stroke-opacity:.25}}
+
+/* small galleries */
+.sld{position:relative;aspect-ratio:1122/1402;border-radius:6px;overflow:hidden;background:#0A0C26;box-shadow:inset 0 0 0 1px rgba(238,240,255,.1)}
+.sld-t{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;direction:ltr}
+.sld-t::-webkit-scrollbar{display:none}
+.sld-i{all:unset;cursor:zoom-in;flex:0 0 100%;height:100%;scroll-snap-align:center;display:flex;align-items:center;justify-content:center}
+.sld-i img{width:100%;height:100%;object-fit:contain;display:block}
+.sld-b{all:unset;cursor:pointer;position:absolute;top:50%;width:32px;height:32px;margin-top:-16px;border-radius:50%;background:rgba(7,8,42,.7);border:1px solid rgba(238,240,255,.3);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;line-height:1;opacity:.85}
+.sld-b:hover,.sld-b:focus-visible{opacity:1;border-color:#fff}
+.sld-b.prev{right:6px}.sld-b.next{left:6px}
+.sld-d{position:absolute;bottom:8px;left:0;right:0;display:flex;justify-content:center;gap:5px;pointer-events:none}
+.sld-d i{width:6px;height:6px;border-radius:50%;background:rgba(238,240,255,.35)}.sld-d i.on{background:#fff}
+@media(max-width:600px){.sld-b{width:26px;height:26px;margin-top:-13px;font-size:16px}}
+/* KOUN logo inside the opening door */
+.door-logo{position:absolute;left:50%;top:44%;width:56%;transform:translate(-50%,-50%) scale(calc(.85 + var(--door,0) * .15));opacity:calc(var(--door,0) * 1.4 - .25);filter:drop-shadow(0 0 10px rgba(255,255,255,.95)) drop-shadow(0 0 26px rgba(205,189,255,.8));pointer-events:none}
+.leaf{z-index:1}
 /* modals */
 .lb{position:fixed;inset:0;z-index:60;background:rgba(3,3,16,.92);display:none;align-items:center;justify-content:center;padding:24px}
 .lb.open{display:flex}
@@ -464,9 +480,18 @@ a.cta{text-decoration:none}
 <div class="panel reveal">
 <h3>التسويق والتصميم</h3>
 <div class="row3">
-<div class="cell"><div class="slot" style="aspect-ratio:4/5">صورة</div><span>نتائج التسويق بالمحتوى</span></div>
-<div class="cell"><div class="tri"><img src="media/triangle.jpg" alt="تصميم جرافيك: مثلث فكرة، شعور، ظهور" loading="lazy"><svg viewBox="0 0 1122 1402" aria-hidden="true"><path class="glow" d="M558 385 L930 1020 L182 1020 Z"/><path class="trace" pathLength="2280" d="M558 385 L930 1020 L182 1020 Z"/></svg></div><span>تصميم جرافيك</span></div>
-<div class="cell"><div class="slot" style="aspect-ratio:4/5">صورة</div><span>تحليل السوق والمنافسين</span></div>
+<div class="cell"><div class="sld" data-g="ana" aria-roledescription="carousel" aria-label="نتائج التسويق بالمحتوى"><div class="sld-t">
+<button type="button" class="sld-i" aria-label="صورة ١"><img src="media/mkt/a1.jpg" alt="نتائج الوصول على إنستقرام" loading="lazy"></button>
+<button type="button" class="sld-i" aria-label="صورة ٢"><img src="media/mkt/a2.jpg" alt="تحليل فيديو تيك توك ١٤٠ ألف مشاهدة" loading="lazy"></button>
+<button type="button" class="sld-i" aria-label="صورة ٣"><img src="media/mkt/a3.jpg" alt="منحنى المشاهدات خلال أول ٧ أيام" loading="lazy"></button>
+<button type="button" class="sld-i" aria-label="صورة ٤"><img src="media/mkt/a4.jpg" alt="تحليل فيديو تيك توك ٤٣ ألف مشاهدة" loading="lazy"></button>
+<button type="button" class="sld-i" aria-label="صورة ٥"><img src="media/mkt/a5.jpg" alt="أنواع المشاهدين" loading="lazy"></button>
+</div><button type="button" class="sld-b prev" aria-label="السابق">›</button><button type="button" class="sld-b next" aria-label="التالي">‹</button><div class="sld-d" aria-hidden="true"></div></div><span>نتائج التسويق بالمحتوى</span></div>
+<div class="cell"><div class="tri"><img src="media/triangle.jpg" alt="مثلث بناء وعي الهوية التجارية: فكرة، شعور، ظهور" loading="lazy"><svg viewBox="0 0 1122 1402" aria-hidden="true"><path class="glow" d="M558 385 L930 1020 L182 1020 Z"/><path class="trace" pathLength="2280" d="M558 385 L930 1020 L182 1020 Z"/></svg></div><span>مثلث بناء وعي الهوية التجارية</span></div>
+<div class="cell"><div class="sld" data-g="des" aria-roledescription="carousel" aria-label="تصميم الأفكار التسويقية"><div class="sld-t">
+<button type="button" class="sld-i" aria-label="تصميم ١"><img src="media/mkt/d1.jpg" alt="تصميم: استلهم قيمة وقوة منتجك" loading="lazy"></button>
+<button type="button" class="sld-i" aria-label="تصميم ٢"><img src="media/mkt/d2.jpg" alt="تصميم: فئتك المستهدفة من المريخ" loading="lazy"></button>
+</div><button type="button" class="sld-b prev" aria-label="السابق">›</button><button type="button" class="sld-b next" aria-label="التالي">‹</button><div class="sld-d" aria-hidden="true"></div></div><span>تصميم الأفكار التسويقية</span></div>
 </div>
 </div>
 </div>
@@ -499,7 +524,7 @@ a.cta{text-decoration:none}
 <section class="beyond" id="beyond">
 <div class="neb neb-p" aria-hidden="true"></div>
 <div class="reveal"><h2 class="serif" style="margin:0;font-weight:300;font-style:italic;font-size:clamp(40px,5.6vw,78px);color:#EDE6FF">Beyond the Visible</h2><p style="margin:6px 0 0;color:#C9C0EC">ما وراء المرئي</p></div>
-<div class="door" id="door" aria-hidden="true"><div class="leaf"></div></div>
+<div class="door" id="door" aria-hidden="true"><img class="door-logo" src="media/koun-logo.png" alt=""><div class="leaf"></div></div>
 </section>
 
 <!-- WORLD 4 — KOUN -->
@@ -754,6 +779,21 @@ const works = [
 $('#arc').innerHTML = works.map((p,i) => `<button class="frame" type="button" data-i="${i}" aria-label="افتح ${p.t}"><span class="cv">${p.vid ? `<video src="${p.vid}" poster="${p.src}" muted loop playsinline preload="none" aria-hidden="true"></video>` : `<img src="${p.src}" alt="" loading="lazy">`}</span><span>${p.t}</span></button>`).join('');
 $$('#arc .frame').forEach(b => b.addEventListener('click', () => openLB(works, +b.dataset.i, b)));
 new IntersectionObserver(es => es.forEach(en => $$('#arc video').forEach(v => en.isIntersecting && !reduce ? v.play().catch(()=>{}) : v.pause())), {threshold:.2}).observe($('#arc'));
+
+
+/* small galleries in the marketing panel */
+$$('.sld').forEach(g => {
+  const t = g.querySelector('.sld-t'), items = [...t.children], dots = g.querySelector('.sld-d');
+  dots.innerHTML = items.map(() => '<i></i>').join('');
+  const idx = () => Math.round(t.scrollLeft / t.clientWidth);
+  const mark = () => [...dots.children].forEach((d,i) => d.classList.toggle('on', i === idx()));
+  const go = n => t.scrollTo({left: ((n + items.length) % items.length) * t.clientWidth, behavior:'smooth'});
+  g.querySelector('.next').addEventListener('click', () => go(idx() + 1));
+  g.querySelector('.prev').addEventListener('click', () => go(idx() - 1));
+  t.addEventListener('scroll', () => requestAnimationFrame(mark), {passive:true}); mark();
+  const list = items.map(b => { const im = b.querySelector('img'); return {t:'', s:'', src:im.getAttribute('src'), cut:true}; });
+  items.forEach((b,i) => b.addEventListener('click', () => openLB(list, i, b)));
+});
 
 /* door */
 const door = $('#door');
