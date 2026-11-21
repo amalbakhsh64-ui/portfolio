@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Amal Afdal Bakhsh</title>
-<meta name="description" content="Amal Afdal Bakhsh — One Mind. Many Dimensions.">
+<title>Amal Afzal Bakhsh</title>
+<meta name="description" content="Amal Afzal Bakhsh — Innovation, Media, Tech & AI, Art.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Sans+Arabic:wght@200;300;400;500&family=Manrope:wght@300;400;500&family=Amiri:ital@0;1&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@ button{font:inherit}
 :focus-visible{outline:2px solid var(--lilac);outline-offset:3px}
 .serif{font-family:'Cormorant Garamond','Amiri',serif}
 .latin{font-family:'Manrope','IBM Plex Sans Arabic',sans-serif;direction:ltr}
-.metal{background:linear-gradient(180deg,#FBFAFF 0%,#C9CFE6 45%,#6E76A0 56%,#E6E8F6 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.metal{padding-bottom:.14em;line-height:1.3!important;background:linear-gradient(180deg,#FBFAFF 0%,#C9CFE6 45%,#6E76A0 56%,#E6E8F6 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .wrap{max-width:1280px;margin:0 auto;padding:0 clamp(18px,4vw,56px)}
 .kick{margin:0 0 12px;font:500 12px/1 'Manrope',sans-serif;letter-spacing:.3em;direction:ltr;color:var(--lilac)}
 .h2{margin:0;font-family:'Cormorant Garamond','Amiri',serif;font-weight:300;font-size:clamp(38px,5.2vw,72px);line-height:1.05;text-wrap:balance}
@@ -82,7 +82,7 @@ nav a:hover{color:#fff}
 
 /* WORLD 1 — innovation */
 .w-inn{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:#04051A}
-.w-inn .bg{position:absolute;inset:-5%;background:url(media/bg-innovation.jpg) center 34%/cover no-repeat;transform:translate3d(calc(var(--mx,0)*-14px),calc(var(--my,0)*-10px),0) scale(1.04);transition:transform .6s ease-out}
+.w-inn .bg{position:absolute;inset:-5%;background:radial-gradient(ellipse at 30% 35%,rgba(124,77,219,.45),transparent 50%),radial-gradient(ellipse at 72% 62%,rgba(59,92,196,.42),transparent 50%),radial-gradient(1.5px 1.5px at 12% 20%,#fff,transparent),radial-gradient(1px 1px at 33% 72%,#fff,transparent),radial-gradient(1.5px 1.5px at 58% 14%,#fff,transparent),radial-gradient(2px 2px at 76% 44%,#fff,transparent),radial-gradient(1px 1px at 88% 82%,#fff,transparent),radial-gradient(1.5px 1.5px at 22% 48%,#fff,transparent),radial-gradient(1px 1px at 48% 90%,#fff,transparent),radial-gradient(1.5px 1.5px at 66% 30%,#fff,transparent),#06072A;transform:translate3d(calc(var(--mx,0)*-14px),calc(var(--my,0)*-10px),0) scale(1.04);transition:transform .6s ease-out}
 .w-inn::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(4,5,26,.15),rgba(4,5,26,.75) 78%),linear-gradient(var(--bg),transparent 18%,transparent 78%,var(--bg))}
 .inn-t{position:relative;z-index:2;padding:120px 20px}
 .inn-t h2{margin:0;font:400 clamp(60px,11vw,168px)/1.05 'Amiri',serif;color:#F4F1FF;text-shadow:0 0 60px rgba(4,5,26,.95),0 0 26px rgba(124,77,219,.55)}
@@ -128,7 +128,7 @@ nav a:hover{color:#fff}
 .models{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:8px}
 @media(max-width:860px){.coach{grid-template-columns:1fr}.coach-vis{min-height:300px}}
 /* auction idea */
-.p-idea{background:radial-gradient(ellipse at 50% 0%,rgba(124,77,219,.3),transparent 60%),linear-gradient(var(--bg),#0C0630)}
+.p-idea{background:#07031F}.p-idea .bg{position:absolute;inset:0;background:url(media/bg-auction.jpg) center 30%/cover no-repeat;opacity:.9}.p-idea::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(7,3,31,.45),rgba(7,3,31,.85) 80%),linear-gradient(var(--bg),transparent 20%,transparent 80%,#07031F)}.p-idea .wrap{position:relative;z-index:2}
 .how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:10px;counter-reset:h}
 .how div{position:relative;padding:28px 24px;border-radius:10px;border:1px solid rgba(205,189,255,.22);background:rgba(30,15,61,.4);display:flex;flex-direction:column;gap:12px}
 .how svg{width:36px;height:36px;stroke:var(--lilac);fill:none;stroke-width:1.3}
@@ -174,7 +174,10 @@ nav a:hover{color:#fff}
 .progress span{display:block;height:100%;background:var(--pearl);width:calc(var(--p,0) * 100%)}
 
 /* WORLD 2 — media */
-.w-med{position:relative;overflow:hidden;padding:150px 0 120px;background:linear-gradient(var(--bg),#081033 50%,var(--bg))}
+.world-t{margin:0;font:400 clamp(48px,8vw,120px)/1.15 'Amiri',serif;color:#F4F1FF;text-wrap:balance;text-shadow:0 0 40px rgba(124,77,219,.45)}
+.world-en{margin:14px 0 0;font:500 clamp(11px,1.1vw,14px)/1 'Manrope',sans-serif;letter-spacing:.4em;color:#D9D2FF;direction:ltr}
+@media(max-width:760px){.vids{grid-template-columns:1fr!important}}
+.w-med{position:relative;overflow:hidden;padding:130px 0 40px;background:linear-gradient(var(--bg),#081033 50%,var(--bg))}
 .mq{display:flex;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);direction:ltr}
 .mq-t{display:flex;gap:56px;flex-shrink:0;padding-right:56px;animation:mq 46s linear infinite;align-items:center}
 .mq.rev .mq-t{animation-direction:reverse;animation-duration:58s}
@@ -198,7 +201,7 @@ nav a:hover{color:#fff}
 @keyframes leak{to{filter:hue-rotate(-20deg) brightness(1.2);transform:scale(1.08)}}
 
 /* WORLD 3 — tech */
-.w-tec{position:relative;overflow:hidden;padding:150px 0 150px;background:linear-gradient(var(--bg),#060A26 30%,#0B0E33 70%,var(--bg))}
+.w-tec{position:relative;overflow:hidden;padding:70px 0 60px;background:linear-gradient(var(--bg),#060A26 30%,#0B0E33 70%,var(--bg))}
 .w-tec canvas{position:absolute;inset:0;width:100%;height:100%}
 .horizon{position:absolute;left:-10%;right:-10%;top:50%;height:340px;background:radial-gradient(ellipse at 50% 100%,rgba(59,92,196,.35),rgba(124,77,219,.18) 40%,transparent 70%);pointer-events:none}
 .sky{position:absolute;left:0;right:0;top:20%;height:600px;display:flex;align-items:flex-end;justify-content:center;gap:10px;pointer-events:none;-webkit-mask-image:linear-gradient(#000 60%,transparent);mask-image:linear-gradient(#000 60%,transparent);transform:translateX(calc(var(--mx,0)*-16px));transition:transform .4s}
@@ -220,20 +223,20 @@ nav a:hover{color:#fff}
 @keyframes typ{50%{opacity:.2;transform:translateY(-3px)}}
 
 /* door */
-.beyond{position:relative;overflow:hidden;padding:160px 20px 180px;background:linear-gradient(var(--bg),#0B0726 45%,#140A36);text-align:center}
-.door{position:relative;width:min(300px,60vw);aspect-ratio:1/2;margin:56px auto;border:1px solid rgba(238,240,255,.5);perspective:1200px;background:radial-gradient(ellipse at 50% 40%,#FBF9FF 0%,#DCD0FF 18%,#7C4DDB 40%,#142A6B 66%,#0B0726 92%);box-shadow:0 0 120px rgba(124,77,219,.5),0 0 260px rgba(59,92,196,.25)}
+.beyond{position:relative;overflow:hidden;padding:60px 20px 40px;background:linear-gradient(var(--bg),#0D0730 45%);text-align:center}
+.door{position:relative;width:min(280px,56vw);aspect-ratio:1/2;margin:34px auto;border:1px solid rgba(238,240,255,.5);perspective:1200px;background:radial-gradient(ellipse at 50% 40%,#FBF9FF 0%,#DCD0FF 18%,#7C4DDB 40%,#142A6B 66%,#0B0726 92%);box-shadow:0 0 120px rgba(124,77,219,.5),0 0 260px rgba(59,92,196,.25)}
 .leaf{position:absolute;inset:0;background:linear-gradient(90deg,#0C0D24,#181A38);border:1px solid rgba(191,198,218,.25);transform-origin:right center;transform:rotateY(calc(var(--door,0) * 80deg));box-shadow:inset 0 0 40px rgba(0,0,0,.8)}
 .blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;animation:morph 18s ease-in-out infinite}
 @keyframes morph{0%,100%{border-radius:42% 58% 62% 38%/45% 40% 60% 55%;transform:translate(0,0) scale(1)}50%{border-radius:60% 40% 35% 65%/55% 62% 38% 45%;transform:translate(40px,-30px) scale(1.12)}}
 .pt{position:absolute;border-radius:50%;background:#EDE6FF;box-shadow:0 0 10px rgba(237,230,255,.9);opacity:0;animation:pt 12s ease-in-out infinite}
 @keyframes pt{0%{opacity:0;transform:translateY(20px)}30%{opacity:.9}70%{opacity:.5}100%{opacity:0;transform:translateY(-120px)}}
 
-/* KAWN */
-.fly-w{position:relative;height:100vh;min-height:620px;overflow:hidden;background:#05031A;cursor:crosshair}
+/* KOUN */
+.fly-w{position:relative;height:100vh;min-height:620px;overflow:hidden;background:#0D0730;cursor:crosshair}
 .fly-w canvas{position:absolute;inset:0;width:100%;height:100%}
 .kawn-t{position:absolute;left:0;right:0;bottom:60px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;pointer-events:none}
 .kawn-t .ghost{pointer-events:auto}
-.gal{position:relative;background:radial-gradient(ellipse at 50% 0%,#1C0F44,#0A0726 45%,#04031A);padding:60px 0 30px;overflow:hidden}
+.gal{position:relative;background:linear-gradient(#0D0730,#0D0730 60%,#08041F);padding:60px 0 30px;overflow:hidden}
 .arc{display:flex;gap:28px;justify-content:center;align-items:flex-end;perspective:1600px;padding:40px 24px 0;overflow-x:auto}
 .frame{all:unset;cursor:zoom-in;flex:0 0 auto;width:clamp(150px,14vw,210px);display:flex;flex-direction:column;align-items:center;gap:14px;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
 .frame .cv{width:100%;aspect-ratio:3/4;background:linear-gradient(160deg,#22174A,#0E0B2A);border:1px solid rgba(238,240,255,.25);box-shadow:inset 0 0 0 8px #0A0820,inset 0 0 0 9px rgba(191,198,218,.25),0 30px 60px -20px rgba(0,0,0,.9),0 0 60px rgba(124,77,219,.18);-webkit-box-reflect:below 10px linear-gradient(transparent 62%,rgba(255,255,255,.16));animation:drift 9s ease-in-out infinite}
@@ -266,14 +269,14 @@ nav a:hover{color:#fff}
 <div class="cursor" aria-hidden="true"></div>
 
 <header>
-<a class="brand" href="#top" aria-label="Amal Afdal Bakhsh — top">A · A · B</a>
+<a class="brand" href="#top" aria-label="Amal Afzal Bakhsh — top">A · A · B</a>
 <nav aria-label="Worlds">
 <a href="#innovation">Innovation</a>
 <a href="#ruya">RU’YA</a>
 <a href="#auction-idea">Auction</a>
 <a href="#media">Media</a>
 <a href="#tech">Tech &amp; AI</a>
-<a href="#kawn">KAWN</a>
+<a href="#kawn">KOUN</a>
 <a href="#connect">Connect</a>
 </nav>
 </header>
@@ -283,8 +286,7 @@ nav a:hover{color:#fff}
 <section class="hero" id="top">
 <canvas id="heroCv" aria-hidden="true"></canvas>
 <div class="hero-title">
-<h1 class="metal">AMAL AFDAL BAKHSH</h1>
-<p>One Mind. Many Dimensions.</p>
+<h1 class="metal">AMAL AFZAL BAKHSH</h1>
 </div>
 <div class="cubes" id="cubes">
 <a class="cw c-inn" href="#innovation" style="left:84%;top:36%" aria-label="عالم التطوير والابتكار">
@@ -313,7 +315,7 @@ nav a:hover{color:#fff}
 <div class="core"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 50 C30 20 8 26 14 46 C18 60 40 58 50 50 C60 58 82 60 86 46 C92 26 70 20 50 50 Z" fill="#B79BFF" opacity=".9"/><path d="M50 50 C38 66 24 80 34 84 C42 86 48 70 50 50 C52 70 58 86 66 84 C76 80 62 66 50 50Z" fill="#9DB6FF" opacity=".8"/></svg><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="16" fill="#CDBDFF"/><ellipse cx="50" cy="50" rx="34" ry="8" fill="none" stroke="#EEF0FF" stroke-width="2"/></svg></div>
 <i class="f f1"></i><i class="f f2"></i><i class="f f3"></i><i class="f f4"></i><i class="f f5"></i><i class="f f6"></i>
 </div></div>
-<span class="lab"><b>الفن</b><span>KAWN</span></span>
+<span class="lab"><b>الفن</b><span>KOUN</span></span>
 </a>
 </div>
 <div class="scrollhint">اختر عالمًا</div>
@@ -385,11 +387,12 @@ nav a:hover{color:#fff}
 
 <!-- AUCTION — the idea -->
 <section class="proj p-idea" id="auction-idea">
+<div class="bg" aria-hidden="true"></div>
 <div class="wrap" style="text-align:center">
 <div class="reveal" style="display:flex;flex-direction:column;align-items:center;gap:16px;margin-bottom:50px">
 <span class="pill"><span class="live" aria-hidden="true"></span>قيد التنفيذ · <span class="latin">In Development</span></span>
-<h2 class="serif metal" style="margin:0;font-weight:300;font-size:clamp(44px,6.4vw,96px);line-height:1.05">المزاد الفني الإلكتروني</h2>
-<p class="lead" style="margin:0 auto">مزاد إلكتروني لأندر الأعمال الفنية.</p>
+<h2 class="serif metal" style="margin:0;font-weight:300;font-size:clamp(44px,6.4vw,96px);padding:.1em .1em .2em">المزاد الفني الإلكتروني</h2>
+<p class="lead" style="margin:0 auto;color:#EEF0FF">مزاد إلكتروني لأندر الأعمال الفنية.</p>
 </div>
 <div class="how" style="text-align:right">
 <div class="reveal"><svg viewBox="0 0 36 36" aria-hidden="true"><rect x="6" y="5" width="24" height="26"/><rect x="10" y="9" width="16" height="18"/><circle cx="18" cy="16" r="3"/></svg><b>قطعة نادرة</b><span>كل قطعة فريدة ولا تتكرر.</span></div>
@@ -397,6 +400,7 @@ nav a:hover{color:#fff}
 <div class="reveal"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M8 30h20M12 26h12M18 6l4 8 9 1-7 6 2 9-8-5-8 5 2-9-7-6 9-1Z"/></svg><b>أعلى سعر يفوز</b><span>عند انتهاء الوقت تروح القطعة لصاحب أعلى مزايدة.</span></div>
 </div>
 <a class="enter" href="#auction">ادخل المعرض ↓</a>
+<p style="margin:22px 0 0;font-size:13px;color:var(--silver)">القطع المعروضة أمثلة توضيحية لفكرة المزاد.</p>
 </div>
 </section>
 
@@ -421,47 +425,29 @@ nav a:hover{color:#fff}
 
 <!-- WORLD 2 — MEDIA -->
 <section class="w-med" id="media">
-<div class="wrap reveal" style="margin-bottom:46px">
-<p class="kick">WORLD 02</p>
-<h2 class="h2">The Voice | الصوت</h2>
-<p class="sub">التسويق والإنتاج الإعلامي</p>
+<div class="wrap reveal" style="text-align:center;margin-bottom:56px">
+<h2 class="world-t">التسويق والإنتاج الإعلامي</h2>
+<p class="world-en">MARKETING &amp; MEDIA PRODUCTION</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:16px;margin-bottom:70px" aria-hidden="true">
-<div class="mq"><div class="mq-t"><span class="ws">Creative Design</span><i class="sep"></i><span class="wl">Creative Writing</span><i class="sep"></i><span class="ws">Content Creation</span><i class="sep"></i><span class="wl">Voice-over</span><i class="sep"></i><span class="ws">AI Video Production</span><i class="sep"></i></div><div class="mq-t"><span class="ws">Creative Design</span><i class="sep"></i><span class="wl">Creative Writing</span><i class="sep"></i><span class="ws">Content Creation</span><i class="sep"></i><span class="wl">Voice-over</span><i class="sep"></i><span class="ws">AI Video Production</span><i class="sep"></i></div></div>
-<div class="mq rev"><div class="mq-t"><span class="wl">Digital Marketing</span><i class="sep"></i><span class="ws">Media Production</span><i class="sep"></i><span class="wl">Social Media</span><i class="sep"></i><span class="ws">Storytelling</span><i class="sep"></i></div><div class="mq-t"><span class="wl">Digital Marketing</span><i class="sep"></i><span class="ws">Media Production</span><i class="sep"></i><span class="wl">Social Media</span><i class="sep"></i><span class="ws">Storytelling</span><i class="sep"></i></div></div>
+<div style="display:flex;flex-direction:column;gap:16px;margin-bottom:64px" aria-hidden="true">
+<div class="mq"><div class="mq-t"><span class="ws">Content Creation</span><i class="sep"></i><span class="wl">AI Video Production</span><i class="sep"></i><span class="ws">Creative Design</span><i class="sep"></i><span class="wl">Media Production</span><i class="sep"></i></div><div class="mq-t"><span class="ws">Content Creation</span><i class="sep"></i><span class="wl">AI Video Production</span><i class="sep"></i><span class="ws">Creative Design</span><i class="sep"></i><span class="wl">Media Production</span><i class="sep"></i></div></div>
+<div class="mq rev"><div class="mq-t"><span class="wl">Digital Marketing</span><i class="sep"></i><span class="ws">Graphic Design</span><i class="sep"></i><span class="wl">Social Media</span><i class="sep"></i><span class="ws">Market Analysis</span><i class="sep"></i></div><div class="mq-t"><span class="wl">Digital Marketing</span><i class="sep"></i><span class="ws">Graphic Design</span><i class="sep"></i><span class="wl">Social Media</span><i class="sep"></i><span class="ws">Market Analysis</span><i class="sep"></i></div></div>
 </div>
 <div class="wrap"><div class="dgrid">
-<div class="tile s3 reveal">
-<span class="tag"><i></i>Voice-over · التعليق الصوتي</span>
-<div style="display:flex;align-items:center;gap:20px">
-<button class="play" type="button" id="voiceBtn" aria-pressed="false" aria-label="تشغيل"><svg id="voiceIco" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg></button>
-<div class="wave" id="wave" style="flex:1" aria-hidden="true"></div>
+<div class="tile s6 reveal">
+<span class="tag"><i></i>AI Video Production · فيديوهات بالذكاء الاصطناعي</span>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px" class="vids">
+<div class="cinema"><div class="leak" aria-hidden="true"></div><div style="position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;color:var(--silver);font-size:13px">فيديو ١</div></div>
+<div class="cinema"><div class="leak" aria-hidden="true" style="animation-delay:-4s"></div><div style="position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;color:var(--silver);font-size:13px">فيديو ٢</div></div>
+<div class="cinema"><div class="leak" aria-hidden="true" style="animation-delay:-8s"></div><div style="position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;color:var(--silver);font-size:13px">فيديو ٣</div></div>
 </div>
-</div>
-<div class="tile s3 reveal" style="background:rgba(20,10,46,.45);justify-content:center">
-<span class="tag"><i></i>Creative Writing · الكتابة</span>
-<div style="border-right:1px solid rgba(191,198,218,.35);padding-right:24px;font:26px/1.9 'Amiri',serif">
-<p style="margin:0">سطرك الأول يكون هنا…</p>
-<p style="margin:0">والثاني يكمل الفكرة،</p>
-<p style="margin:0;font-style:italic;color:var(--silver)">والثالث يترك أثرًا.</p>
-</div>
-<span style="font-size:13px;color:var(--muted)">— أمل</span>
-</div>
-<div class="tile s4 reveal" style="padding:0;gap:0">
-<div class="cinema"><div class="leak" aria-hidden="true"></div><div style="position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;color:var(--silver);font-size:13px">فيديو بالذكاء الاصطناعي</div></div>
-<div style="padding:18px 26px"><span class="tag"><i></i>AI Video Production · Media Production</span></div>
-</div>
-<div class="tile s2 reveal">
-<span class="tag"><i></i>Creative Design</span>
-<span class="serif" style="font-size:24px">أفكارك بالتصميم · نقطة تواصل</span>
-<div class="slot" style="flex:1;min-height:150px">تصميم</div>
 </div>
 <div class="tile s6 reveal">
-<span class="tag"><i></i>Social Media · Content Marketing</span>
-<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px">
-<div style="display:flex;flex-direction:column;gap:10px"><div class="slot" style="aspect-ratio:4/5">صورة</div><span style="font-size:14px;color:var(--silver)">إدارة السوشل ميديا</span></div>
-<div style="display:flex;flex-direction:column;gap:10px"><div class="slot" style="aspect-ratio:4/5">صورة</div><span style="font-size:14px;color:var(--silver)">التسويق بالمحتوى</span></div>
-<div style="display:flex;flex-direction:column;gap:10px"><div class="slot" style="aspect-ratio:4/5">صورة</div><span style="font-size:14px;color:var(--silver)">كتابة المحتوى</span></div>
+<span class="tag"><i></i>Content Marketing · Graphic Design · Market Research</span>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px" class="vids">
+<div style="display:flex;flex-direction:column;gap:10px"><div class="slot" style="aspect-ratio:4/5">صورة</div><span style="font-size:15px">نتائج التسويق بالمحتوى</span></div>
+<div style="display:flex;flex-direction:column;gap:10px"><div class="slot" style="aspect-ratio:4/5">صورة</div><span style="font-size:15px">تصميم جرافيك</span></div>
+<div style="display:flex;flex-direction:column;gap:10px"><div class="slot" style="aspect-ratio:4/5">صورة</div><span style="font-size:15px">تحليل السوق والمنافسين</span></div>
 </div>
 </div>
 </div></div>
@@ -474,19 +460,18 @@ nav a:hover{color:#fff}
 <div class="sky" aria-hidden="true"><div class="tw" style="width:46px;height:260px"></div><div class="tw v" style="width:70px;height:380px"></div><div class="tw" style="width:38px;height:200px"></div><div class="tw" style="width:90px;height:520px"></div><div class="tw v" style="width:52px;height:300px"></div><div class="tw" style="width:64px;height:440px"></div><div class="tw v" style="width:110px;height:590px"></div><div class="tw" style="width:58px;height:340px"></div><div class="tw v" style="width:42px;height:240px"></div><div class="tw" style="width:84px;height:480px"></div><div class="tw" style="width:36px;height:280px"></div><div class="tw v" style="width:66px;height:400px"></div></div>
 <div class="scan" aria-hidden="true"></div>
 <div class="wrap" style="position:relative;z-index:2;pointer-events:none">
-<div class="reveal" style="text-align:center;margin-bottom:clamp(220px,30vw,360px)">
-<p class="kick">WORLD 03</p>
-<h2 class="h2">The Machine | التقنية</h2>
-<p class="sub">التقنية والذكاء الاصطناعي</p>
+<div class="reveal" style="text-align:center;margin-bottom:clamp(200px,26vw,320px)">
+<h2 class="world-t">التقنية والذكاء الاصطناعي</h2>
+<p class="world-en">TECH &amp; ARTIFICIAL INTELLIGENCE</p>
 <p style="margin:16px 0 0;font-size:13px;color:var(--muted)">حرّك المؤشر داخل الشبكة</p>
 </div>
 <div class="dgrid" style="pointer-events:auto">
-<div class="holo s2 reveal">
+<div class="holo s3 reveal">
 <span class="tag"><i></i>Website Design</span>
 <span style="font-size:17px">تصميم المواقع</span>
 <div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><div class="slot" style="border:0;border-radius:0;aspect-ratio:16/10">الموقع</div></div>
 </div>
-<div class="holo s2 reveal">
+<div class="holo s3 reveal">
 <span class="tag"><i></i>Workflow Automation</span>
 <span style="font-size:17px">أتمتة رسائل واتساب بزنس</span>
 <div style="display:flex;flex-direction:column;gap:10px">
@@ -494,11 +479,6 @@ nav a:hover{color:#fff}
 <div class="bubble b2" style="align-self:flex-end;background:#1A1640;border:1px solid rgba(205,189,255,.25)"><span class="typing" aria-hidden="true"><i></i><i></i><i></i></span></div>
 <div class="bubble b3" style="align-self:flex-end;background:#1A1640;border:1px solid rgba(205,189,255,.25)">رد تلقائي فوري</div>
 </div>
-</div>
-<div class="holo skill s2 reveal" style="justify-content:center">
-<span class="tag"><i class="o"></i>Skill</span>
-<span class="serif latin" style="font-size:36px;font-weight:300;text-align:right">AI Agents</span>
-<span style="color:var(--muted)">وكلاء الذكاء الاصطناعي</span>
 </div>
 </div>
 </div>
@@ -517,7 +497,7 @@ nav a:hover{color:#fff}
 <a class="clink" href="#kawn" style="position:relative;z-index:2;border-color:rgba(205,189,255,.5)">ادخل</a>
 </section>
 
-<!-- WORLD 4 — KAWN -->
+<!-- WORLD 4 — KOUN -->
 <section id="kawn">
 <div class="fly-w">
 <canvas id="flyCv" aria-hidden="true"></canvas>
@@ -525,7 +505,7 @@ nav a:hover{color:#fff}
 <p class="kick" style="margin:0">WORLD 04 — THE ART WITHIN</p>
 <h2 style="margin:0;display:flex;align-items:baseline;gap:20px">
 <span style="font:400 clamp(64px,9vw,140px)/1 'Amiri',serif;text-shadow:0 0 40px rgba(124,77,219,.7)">كون</span>
-<span class="serif latin" style="font-weight:300;font-size:clamp(24px,3vw,44px);letter-spacing:.4em;color:var(--silver)">KAWN</span>
+<span class="serif latin" style="font-weight:300;font-size:clamp(24px,3vw,44px);letter-spacing:.4em;color:var(--silver)">KOUN</span>
 </h2>
 <button class="ghost" type="button" id="burstBtn">أطلق الفراشة</button>
 </div>
@@ -533,7 +513,7 @@ nav a:hover{color:#fff}
 <div class="gal">
 <div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px">
 <p class="serif" style="margin:0;font-size:26px">لوحات مرسومة باليد</p>
-<button class="ghost" type="button" id="soundBtn" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/></svg><span id="soundLbl">صوت محيطي</span></button>
+<button class="ghost" type="button" id="soundBtn" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/></svg><span id="soundLbl">تشغيل الموسيقى</span></button>
 </div>
 <div class="arc" id="arc"></div>
 <div class="water" aria-hidden="true"></div>
@@ -542,14 +522,11 @@ nav a:hover{color:#fff}
 
 <section class="connect" id="connect">
 <p class="kick" style="color:var(--sky)">CONNECT</p>
-<h2 class="serif metal latin" style="margin:0 0 30px;font-weight:300;font-size:clamp(34px,6vw,88px);letter-spacing:.08em">AMAL AFDAL BAKHSH</h2>
+<h2 class="serif metal latin" style="margin:0 0 30px;font-weight:300;font-size:clamp(34px,6vw,88px);letter-spacing:.08em">AMAL AFZAL BAKHSH</h2>
 <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
-<a class="clink" href="#connect">البريد الإلكتروني</a>
-<a class="clink latin" href="#connect">LinkedIn</a>
-<a class="clink" href="#connect">واتساب</a>
-<a class="clink" href="#kawn">متجر كون</a>
+<a class="clink" href="mailto:amalbakhsh64@gmail.com"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span class="latin">amalbakhsh64@gmail.com</span></a>
+<a class="clink" href="https://wa.me/966533187388"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7Z"/></svg><span>واتساب</span><span class="latin" style="color:var(--silver)">0533187388</span></a>
 </div>
-<p class="latin" style="margin:110px 0 0;font-size:12px;letter-spacing:.2em;color:#5D6488">One Mind. Many Dimensions.</p>
 </section>
 </main>
 
@@ -628,7 +605,7 @@ function drawNet(t){
   nodes.forEach((n,k) => { const pl = .6+.4*Math.sin(t*.002+k); c.fillStyle = n.v ? `rgba(215,200,255,${pl})` : `rgba(215,228,255,${pl})`; c.beginPath(); c.arc(n.x,n.y,n.r,0,6.283); c.fill(); });
 }
 
-/* KAWN butterfly */
+/* KOUN butterfly */
 const flyCv = $('#flyCv'); let F = fit(flyCv); visIO.observe(flyCv);
 let parts = [], dust = [], fcx = F.w/2, fcy = F.h*.4, fang = 0, burstUntil = 0;
 function initFly(){ const n = F.w<700 ? 900 : 1600; parts = Array.from({length:n}, () => ({t:Math.random()*Math.PI*12, x:Math.random()*F.w, y:Math.random()*F.h, vx:0, vy:0, j:(Math.random()-.5)*6, k:(Math.random()-.5)*6, s:Math.random()*1.6+.5, ph:Math.random()*6.28})); dust = Array.from({length:70}, () => ({x:Math.random()*F.w, y:Math.random()*F.h, s:Math.random()*1.2+.3, v:Math.random()*.3+.05})); }
@@ -637,7 +614,7 @@ function burst(){ burstUntil = performance.now() + 1500; for (const p of parts){
 flyCv.addEventListener('pointerdown', burst); $('#burstBtn').addEventListener('click', burst);
 function drawFly(t){
   const {x:c, w, h} = F;
-  c.globalCompositeOperation = 'source-over'; c.fillStyle = reduce ? '#05031A' : 'rgba(5,3,26,.26)'; c.fillRect(0,0,w,h);
+  c.globalCompositeOperation = 'source-over'; c.fillStyle = reduce ? '#0D0730' : 'rgba(13,7,48,.26)'; c.fillRect(0,0,w,h);
   const r = flyCv.getBoundingClientRect(), mx = mouse.x - r.left, my = mouse.y - r.top, has = mx>0 && my>0 && mx<w && my<h;
   const tx = has ? mx : w/2 + Math.sin(t*.00031)*w*.26, ty = has ? my : h*.4 + Math.sin(t*.00053)*h*.12;
   const px = fcx; fcx += (tx-fcx)*.035; fcy += (ty-fcy)*.035; fang += (((fcx-px)*.04) - fang)*.08;
@@ -657,7 +634,7 @@ function drawFly(t){
 
 /* lightbox (lots + paintings) */
 const lb = $('#lb'), lbCv = $('#lbCv'); let lbList = [], lbI = 0, lbReturn = null;
-function lbShow(){ const it = lbList[lbI]; $('#lbT').textContent = it.t; $('#lbS').textContent = it.s; lbCv.classList.remove('zoom'); lbCv.style.backgroundImage = it.src ? `url('${it.src}')` : ''; lbCv.style.backgroundSize = 'cover'; lbCv.style.backgroundPosition = 'center'; $('#lbT').hidden = !!it.src; $('#lbS').hidden = !!it.src; }
+function lbShow(){ const it = lbList[lbI]; $('#lbT').textContent = it.t; $('#lbS').textContent = it.s; lbCv.classList.remove('zoom'); lbCv.style.backgroundImage = it.src ? `url('${it.src}')` : ''; lbCv.style.backgroundSize = it.cut ? 'contain' : 'cover'; lbCv.style.backgroundRepeat = 'no-repeat'; lbCv.style.backgroundPosition = 'center'; $('#lbT').hidden = !!it.src; $('#lbS').hidden = !!it.src; }
 function openLB(list, i, from){ lbList = list; lbI = i; lbReturn = from; lbShow(); lb.classList.add('open'); $('#lbClose').focus(); }
 function closeLB(){ lb.classList.remove('open'); if (lbReturn) lbReturn.focus(); }
 $('#lbClose').addEventListener('click', closeLB);
@@ -669,20 +646,23 @@ lb.addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); });
 /* AUCTION — cosmic walk-through gallery */
 /* src: put an image path here (e.g. 'media/lots/01.jpg') to show the real piece; cut:true = piece without background, floats freely */
 const LOTS = [
-  {wall:'L', at:520,  top:150, w:300, h:390, tilt:-2.5},
-  {wall:'R', at:900,  top:110, w:340, h:300, tilt:2},
-  {float:true, x:-240, y:-60,  z:-1300, w:220, h:280},
-  {wall:'L', at:1500, top:90,  w:260, h:460, tilt:3},
-  {wall:'R', at:1850, top:170, w:300, h:380, tilt:-3.5},
-  {float:true, x:260,  y:-120, z:-2300, w:240, h:240},
-  {wall:'L', at:2500, top:160, w:340, h:340, tilt:-1.5},
-  {wall:'R', at:2850, top:100, w:280, h:430, tilt:2.5},
-  {float:true, x:-200, y:-160, z:-3200, w:200, h:300},
-  {wall:'L', at:3500, top:130, w:300, h:380, tilt:2},
-  {wall:'R', at:3750, top:150, w:320, h:320, tilt:-2}
+  {wall:'L', at:450,  top:140, w:300, h:400, tilt:-2.5, src:'media/lots/eyes.jpg'},
+  {wall:'R', at:800,  top:110, w:270, h:405, tilt:2,    src:'media/lots/redshoes.jpg'},
+  {float:true, x:-250, y:-40,  z:-1200, w:260, h:260, cut:true, src:'media/lots/butterfly.webp'},
+  {wall:'L', at:1400, top:100, w:240, h:427, tilt:2.5,  src:'media/lots/melting.jpg'},
+  {wall:'R', at:1750, top:140, w:330, h:406, tilt:-3,   src:'media/lots/waterframe.jpg'},
+  {float:true, x:270,  y:-90,  z:-2000, w:230, h:307, cut:true, src:'media/lots/mermaid.webp'},
+  {wall:'L', at:2350, top:130, w:320, h:394, tilt:-1.5, src:'media/lots/clock.jpg'},
+  {wall:'R', at:2700, top:110, w:280, h:396, tilt:2.5,  src:'media/lots/volta.jpg'},
+  {float:true, x:-230, y:-60,  z:-2800, w:250, h:334, cut:true, src:'media/lots/pearl.webp'},
+  {wall:'L', at:3250, top:140, w:300, h:400, tilt:2,    src:'media/lots/jelly.jpg'},
+  {wall:'R', at:3550, top:120, w:270, h:405, tilt:-2,   src:'media/lots/ballerinas.jpg'},
+  {float:true, x:240,  y:0,    z:-3500, w:200, h:298, cut:true, src:'media/lots/wave.webp'},
+  {wall:'L', at:3900, top:150, w:290, h:377, tilt:-2,   src:'media/lots/planets.jpg'},
+  {float:true, x:0,    y:-240, z:-3950, w:200, h:200, cut:true, src:'media/lots/spiral.webp'}
 ];
-const lotList = LOTS.map((l,i) => ({t:'LOT ' + String(i+1).padStart(2,'0'), s: l.src ? 'المزاد قيد التنفيذ' : 'تُكشف عند الافتتاح', src:l.src || ''}));
-lotList.push({t:'THE RAREST', s:'أندر الأعمال — تُكشف عند الافتتاح', src:''});
+const lotList = LOTS.map((l,i) => ({t:'LOT ' + String(i+1).padStart(2,'0'), s:'مثال توضيحي · المزاد قيد التنفيذ', src:l.src || '', cut:!!l.cut}));
+lotList.push({t:'THE RAREST', s:'أندر الأعمال · مثال توضيحي', src:'media/lots/statue.jpg'});
 const inner = (l, cls) => `<span class="in ${l.src ? '' : 'veil'} ${cls||''}" ${l.src ? `style="background-image:url('${l.src}')"` : ''}></span>`;
 const H2 = {L:'', R:''};
 LOTS.forEach((l,i) => {
@@ -699,7 +679,7 @@ LOTS.forEach((l,i) => {
   }
 });
 $('#wallL').innerHTML = H2.L; $('#wallR').innerHTML = H2.R;
-$('#wallB').innerHTML = `<button class="centerpiece" type="button" data-i="${LOTS.length}" aria-label="THE RAREST"><span class="in veil" style="position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px;width:100%;height:100%;padding-bottom:28px;overflow:hidden;background:radial-gradient(ellipse at 50% 35%,rgba(238,240,255,.45),rgba(124,77,219,.4) 40%,#0B0630)"><span class="latin" style="position:relative;z-index:1;font-size:13px;letter-spacing:.3em">THE RAREST</span><span class="serif" style="position:relative;z-index:1;font-size:28px">أندر الأعمال</span></span></button>`;
+$('#wallB').innerHTML = `<button class="centerpiece" type="button" data-i="${LOTS.length}" aria-label="THE RAREST" style="width:300px;height:534px"><span class="in" style="display:block;width:100%;height:100%;background:url('media/lots/statue.jpg') center/cover"></span><span class="plq" style="position:absolute;left:50%;bottom:-50px;transform:translateX(-50%);white-space:nowrap;font:500 13px/1 'Manrope',sans-serif;letter-spacing:.3em;color:#EEF0FF;background:rgba(7,3,31,.8);border:1px solid rgba(205,189,255,.5);padding:9px 14px">THE RAREST</span></button>`;
 /* glitter planets */
 const PL = [
   {x:-420,y:-230,z:-700, r:120, c1:'#C9A6FF', c2:'#4A2391', ring:1},
@@ -718,7 +698,7 @@ const aucSec = $('#auction'), aStage = $('#aStage');
 function stepAuc(){ const r = aucSec.getBoundingClientRect(), total = r.height - innerHeight; const p = total > 0 ? Math.min(1, Math.max(0, -r.top/total)) : 0; aStage.style.setProperty('--p', p.toFixed(4)); }
 addEventListener('scroll', () => requestAnimationFrame(stepAuc), {passive:true}); stepAuc();
 
-const paintings = ['لوحة ١','لوحة ٢','لوحة ٣','لوحة ٤','لوحة ٥','لوحة ٦'].map(t => ({t, s:'كون · KAWN'}));
+const paintings = ['لوحة ١','لوحة ٢','لوحة ٣','لوحة ٤','لوحة ٥','لوحة ٦'].map(t => ({t, s:'كون · KOUN'}));
 $('#arc').innerHTML = paintings.map((p,i) => `<button class="frame" type="button" data-i="${i}" aria-label="افتح ${p.t}"><span class="cv" aria-hidden="true"></span><span>${p.t}</span></button>`).join('');
 $$('#arc .frame').forEach(b => b.addEventListener('click', () => openLB(paintings, +b.dataset.i, b)));
 
@@ -741,13 +721,29 @@ const door = $('#door');
 function stepDoor(){ const r = door.getBoundingClientRect(); const p = Math.min(1, Math.max(0, (innerHeight - r.top) / (innerHeight + r.height*.4))); door.style.setProperty('--door', reduce ? .5 : p.toFixed(3)); }
 addEventListener('scroll', stepDoor, {passive:true}); stepDoor();
 
-/* ambient sound */
+/* ambient music — generated in the browser, plays only on request */
 let audio = null;
-function startSound(){ try { const C = window.AudioContext || window.webkitAudioContext; if (!C) return; const ctx = new C(), m = ctx.createGain(), f = ctx.createBiquadFilter(); m.gain.value = 0; f.type = 'lowpass'; f.frequency.value = 900; f.connect(m); m.connect(ctx.destination);
-  [110,164.81,220,277.18].forEach((fr,i) => { const o = ctx.createOscillator(), g = ctx.createGain(), l = ctx.createOscillator(), lg = ctx.createGain(); o.type = i%2 ? 'triangle' : 'sine'; o.frequency.value = fr; o.detune.value = (i-1.5)*6; g.gain.value = .12/(i+1); l.frequency.value = .05+i*.03; lg.gain.value = .05/(i+1); l.connect(lg); lg.connect(g.gain); l.start(); o.connect(g); g.connect(f); o.start(); });
-  m.gain.linearRampToValueAtTime(.5, ctx.currentTime + 4); audio = {ctx, m}; } catch(e){ audio = null; } }
-function stopSound(){ if (!audio) return; const a = audio; audio = null; try { a.m.gain.cancelScheduledValues(a.ctx.currentTime); a.m.gain.linearRampToValueAtTime(0, a.ctx.currentTime + 1.2); setTimeout(() => a.ctx.close(), 1400); } catch(e){} }
-$('#soundBtn').addEventListener('click', e => { const on = e.currentTarget.getAttribute('aria-pressed') !== 'true'; e.currentTarget.setAttribute('aria-pressed', on); $('#soundLbl').textContent = on ? 'إيقاف الصوت المحيطي' : 'صوت محيطي'; on ? startSound() : stopSound(); });
+function startSound(){ try {
+  const C = window.AudioContext || window.webkitAudioContext; if (!C) return;
+  const ctx = new C(), out = ctx.createGain(); out.gain.value = 0; out.connect(ctx.destination);
+  const len = ctx.sampleRate * 4, ir = ctx.createBuffer(2, len, ctx.sampleRate);
+  for (let ch=0; ch<2; ch++){ const d = ir.getChannelData(ch); for (let i=0;i<len;i++) d[i] = (Math.random()*2-1) * Math.pow(1 - i/len, 3); }
+  const rev = ctx.createConvolver(); rev.buffer = ir; const wet = ctx.createGain(); wet.gain.value = .55; rev.connect(wet); wet.connect(out);
+  const dry = ctx.createGain(); dry.gain.value = .5; dry.connect(out);
+  const delay = ctx.createDelay(); delay.delayTime.value = .48; const fb = ctx.createGain(); fb.gain.value = .32; delay.connect(fb); fb.connect(delay); delay.connect(rev);
+  const hz = m => 440 * Math.pow(2, (m-69)/12);
+  const chords = [[52,59,64,67,71],[45,52,57,60,64],[48,55,60,64,67],[43,50,55,59,62]];
+  const melody = [76,79,83,81,79,76,74,76, 72,76,79,77,76,72,71,72, 76,79,84,83,81,79,76,79, 74,79,83,81,79,74,71,74];
+  let step = 0, next = ctx.currentTime + .1; const beat = .42;
+  function pad(notes, t, dur){ notes.forEach((n,i) => { const o = ctx.createOscillator(), g = ctx.createGain(), f = ctx.createBiquadFilter(); o.type = i%2 ? 'triangle' : 'sine'; o.frequency.value = hz(n); o.detune.value = (i-2)*4; f.type = 'lowpass'; f.frequency.value = 1200; g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.05, t + 1.6); g.gain.linearRampToValueAtTime(0, t + dur + 1.2); o.connect(f); f.connect(g); g.connect(rev); g.connect(dry); o.start(t); o.stop(t + dur + 1.4); }); }
+  function pluck(n, t){ const o = ctx.createOscillator(), o2 = ctx.createOscillator(), g = ctx.createGain(); o.type = 'sine'; o2.type = 'triangle'; o.frequency.value = hz(n); o2.frequency.value = hz(n+12); const g2 = ctx.createGain(); g2.gain.value = .25; o2.connect(g2); g2.connect(g); g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.09, t + .02); g.gain.exponentialRampToValueAtTime(.0008, t + 2.2); o.connect(g); g.connect(dry); g.connect(delay); o.start(t); o2.start(t); o.stop(t + 2.3); o2.stop(t + 2.3); }
+  function sched(){ while (next < ctx.currentTime + .6){ if (step % 8 === 0) pad(chords[(step/8|0) % 4], next, beat*8); if (step % 2 === 0 || Math.random() < .35) pluck(melody[step % melody.length], next); step++; next += beat; } }
+  const timer = setInterval(sched, 120); sched();
+  out.gain.linearRampToValueAtTime(.7, ctx.currentTime + 3);
+  audio = {ctx, out, timer};
+} catch(e){ audio = null; } }
+function stopSound(){ if (!audio) return; const a = audio; audio = null; clearInterval(a.timer); try { a.out.gain.cancelScheduledValues(a.ctx.currentTime); a.out.gain.linearRampToValueAtTime(0, a.ctx.currentTime + 1.5); setTimeout(() => a.ctx.close(), 1700); } catch(e){} }
+$('#soundBtn').addEventListener('click', e => { const on = e.currentTarget.getAttribute('aria-pressed') !== 'true'; e.currentTarget.setAttribute('aria-pressed', on); $('#soundLbl').textContent = on ? 'إيقاف الموسيقى' : 'تشغيل الموسيقى'; on ? startSound() : stopSound(); });
 
 /* resize */
 let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { H = fit(heroCv); N = fit(netCv); F = fit(flyCv); initNet(); initFly(); }, 150); });
