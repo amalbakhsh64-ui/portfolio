@@ -225,7 +225,7 @@ nav a:hover{color:#fff}
 .beyond{text-align:center;padding:50px 20px 30px;overflow:hidden}
 .door{position:relative;width:min(260px,52vw);aspect-ratio:1/2;margin:30px auto;border:1px solid rgba(238,240,255,.5);perspective:1200px;background:radial-gradient(ellipse at 50% 40%,#FBF9FF 0%,#DCD0FF 18%,#7C4DDB 40%,#142A6B 66%,#0B0726 92%);box-shadow:0 0 120px rgba(124,77,219,.5),0 0 260px rgba(59,92,196,.25)}
 .leaf{position:absolute;inset:0;background:linear-gradient(90deg,#0C0D24,#181A38);border:1px solid rgba(191,198,218,.25);transform-origin:right center;transform:rotateY(calc(var(--door,0) * 80deg))}
-.fly-w{position:relative;height:66vh;min-height:460px;overflow:hidden;cursor:crosshair}
+.fly-w{position:relative;height:80vh;min-height:560px;overflow:hidden;cursor:crosshair}
 .fly-w canvas{position:absolute;inset:0;width:100%;height:100%}
 .koun-t{position:absolute;left:0;right:0;bottom:20px;display:flex;flex-direction:column;align-items:center;gap:12px;pointer-events:none}
 .koun-t .ghost{pointer-events:auto}
@@ -285,6 +285,21 @@ a.cta{text-decoration:none}
 /* KOUN logo inside the opening door */
 .door-logo{position:absolute;left:50%;top:44%;width:56%;transform:translate(-50%,-50%) scale(calc(.85 + var(--door,0) * .15));opacity:calc(var(--door,0) * 1.4 - .25);filter:drop-shadow(0 0 10px rgba(255,255,255,.95)) drop-shadow(0 0 26px rgba(205,189,255,.8));pointer-events:none}
 .leaf{z-index:1}
+
+/* website preview */
+a.browser.site{display:block;position:relative;text-decoration:none;color:var(--pearl);transition:transform .5s,box-shadow .5s}
+a.browser.site:hover,a.browser.site:focus-visible{transform:translateY(-4px);box-shadow:0 30px 70px -20px rgba(59,92,196,.7)}
+a.browser.site .bar{align-items:center}
+a.browser.site .bar span{margin-left:10px;font-size:11px;color:var(--muted)}
+a.browser.site img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top}
+a.browser.site .open{position:absolute;bottom:12px;left:12px;padding:8px 14px;border-radius:999px;background:rgba(7,8,42,.8);border:1px solid rgba(238,240,255,.3);font-size:13px}
+/* KOUN store header */
+.k-logo{position:relative;width:clamp(90px,11vw,140px);margin-bottom:4px}
+.k-logo img{display:block;width:100%;filter:drop-shadow(0 0 14px rgba(205,189,255,.55))}
+.k-logo i{position:absolute;width:10px;height:10px;background:radial-gradient(circle,#fff 0 18%,transparent 60%);animation:tw 2.8s ease-in-out infinite}
+.k-logo i::before,.k-logo i::after{content:'';position:absolute;left:50%;top:50%;background:linear-gradient(90deg,transparent,#fff,transparent);transform:translate(-50%,-50%)}
+.k-logo i::before{width:16px;height:1px}.k-logo i::after{width:1px;height:16px;background:linear-gradient(transparent,#fff,transparent)}
+@keyframes tw{0%,100%{opacity:0;transform:scale(.4)}50%{opacity:.9;transform:scale(1)}}
 /* modals */
 .lb{position:fixed;inset:0;z-index:60;background:rgba(3,3,16,.92);display:none;align-items:center;justify-content:center;padding:24px}
 .lb.open{display:flex}
@@ -512,7 +527,7 @@ a.cta{text-decoration:none}
 <p class="en">TECH &amp; ARTIFICIAL INTELLIGENCE</p>
 </div>
 <div class="g2">
-<div class="holo reveal"><span class="tag"><i></i>Website Design</span><h3>تصميم المواقع</h3><div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><div class="slot" style="border:0;border-radius:0;aspect-ratio:16/10">الموقع</div></div></div>
+<div class="holo reveal"><span class="tag"><i></i>Website Design</span><h3>تصميم المواقع</h3><a class="browser site" href="https://rowaidagraphics.com/index.html#home" target="_blank" rel="noopener" aria-label="افتح موقع Graphic Design"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="latin">rowaidagraphics.com</span></div><img src="media/web1.jpg" alt="موقع Graphic Design" loading="lazy"><span class="open">افتح الموقع ↗</span></a></div>
 <div class="holo reveal"><span class="tag"><i></i>Workflow Automation</span><h3>أتمتة رسائل واتساب بزنس</h3>
 <div style="display:flex;flex-direction:column;gap:10px">
 <div class="bubble" style="align-self:flex-start;background:#18306E">مرحبًا</div>
@@ -536,8 +551,9 @@ a.cta{text-decoration:none}
 <div class="fly-w">
 <canvas id="flyCv" aria-hidden="true"></canvas>
 <div class="koun-t">
-<p class="latin" style="margin:0;font-size:12px;letter-spacing:.34em;color:var(--lilac)">WORLD 04 · THE ART WITHIN</p>
-<h2 style="margin:0;display:flex;align-items:baseline;gap:20px"><span style="font:400 clamp(64px,9vw,136px)/1.1 'Amiri',serif;text-shadow:0 0 40px rgba(124,77,219,.7)">كون</span><span class="serif latin" style="font-weight:300;font-size:clamp(24px,3vw,42px);letter-spacing:.4em;color:var(--silver)">KOUN</span></h2>
+<div class="k-logo"><img src="media/koun-logo-light.png" alt="شعار كون"><i style="top:6%;left:8%"></i><i style="top:22%;right:2%;animation-delay:.7s"></i><i style="top:52%;left:-6%;animation-delay:1.4s"></i><i style="top:70%;right:-4%;animation-delay:2.1s"></i><i style="top:-4%;right:30%;animation-delay:1s"></i></div>
+<h2 style="margin:0;font:400 clamp(40px,5.6vw,72px)/1.2 'Amiri',serif;text-shadow:0 0 40px rgba(124,77,219,.7)">متجر كون</h2>
+<p style="margin:0;color:#DCD4FF;font-size:clamp(16px,1.5vw,19px)">تخليد جمال الفراشات الحقيقية</p>
 <button class="ghost" type="button" id="burstBtn">أطلق الفراشة</button>
 </div>
 </div>
@@ -644,7 +660,7 @@ function drawFly(t){
   const {x:c, w, h} = F;
   c.globalCompositeOperation = 'destination-out'; c.fillStyle = 'rgba(0,0,0,.3)'; c.fillRect(0,0,w,h);
   const r = flyCv.getBoundingClientRect(), mx = mouse.x - r.left, my = mouse.y - r.top, has = mx>0 && my>0 && mx<w && my<h;
-  const tx = has ? mx : w/2 + Math.sin(t*.00031)*w*.24, ty = has ? my : h*.42 + Math.sin(t*.00053)*h*.1;
+  const tx = has ? mx : w/2 + Math.sin(t*.00031)*w*.3, ty = has ? my : h*.2 + Math.sin(t*.00053)*h*.05;
   const px = fcx; fcx += (tx-fcx)*.035; fcy += (ty-fcy)*.035; fang += (((fcx-px)*.04) - fang)*.08;
   const flap = reduce ? 1 : .18 + .82*Math.abs(Math.cos(t*.0042)), sc = Math.min(w,h)*.075, ca = Math.cos(fang), sa = Math.sin(fang), b = t < burstUntil;
   c.globalCompositeOperation = 'lighter';
@@ -772,14 +788,13 @@ setView();
 
 /* KOUN works */
 const works = [
-  {t:'كون · ٠١', src:'media/koun/k1.jpg'},
-  {t:'كون · ٠٢', src:'media/koun/k2.jpg'},
-  {t:'كون · ٠٣', src:'media/koun/k3.jpg'},
-  {t:'كون · ٠٤', vid:'media/koun/k5.mp4', src:'media/koun/k5.jpg'},
-  {t:'كون · ٠٥', vid:'media/koun/k6.mp4', src:'media/koun/k6.jpg'},
-  {t:'كون · ٠٦', vid:'media/koun/k7.mp4', src:'media/koun/k7.jpg'}
-];
-$('#arc').innerHTML = works.map((p,i) => `<button class="frame" type="button" data-i="${i}" aria-label="افتح ${p.t}"><span class="cv">${p.vid ? `<video src="${p.vid}" poster="${p.src}" muted loop playsinline preload="none" aria-hidden="true"></video>` : `<img src="${p.src}" alt="" loading="lazy">`}</span><span>${p.t}</span></button>`).join('');
+  {t:'عمل ١', src:'media/koun/k1.jpg'},
+  {t:'عمل ٢', src:'media/koun/k2.jpg'},
+  {t:'عمل ٣', src:'media/koun/k3.jpg'},
+  {t:'عمل ٤', vid:'media/koun/k5.mp4', src:'media/koun/k5.jpg'},
+  {t:'عمل ٥', vid:'media/koun/k7.mp4', src:'media/koun/k7.jpg'}
+].map(w => ({...w, t:'', s:''}));
+$('#arc').innerHTML = works.map((p,i) => `<button class="frame" type="button" data-i="${i}" aria-label="افتح العمل ${i+1}"><span class="cv">${p.vid ? `<video src="${p.vid}" poster="${p.src}" muted loop playsinline preload="none" aria-hidden="true"></video>` : `<img src="${p.src}" alt="" loading="lazy">`}</span></button>`).join('');
 $$('#arc .frame').forEach(b => b.addEventListener('click', () => openLB(works, +b.dataset.i, b)));
 new IntersectionObserver(es => es.forEach(en => $$('#arc video').forEach(v => en.isIntersecting && !reduce ? v.play().catch(()=>{}) : v.pause())), {threshold:.2}).observe($('#arc'));
 
