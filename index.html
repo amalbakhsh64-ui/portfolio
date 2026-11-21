@@ -335,6 +335,35 @@ body{background:#07082A}
 .art .pic{display:block;width:100%;height:100%;background-size:cover;background-position:center}
 .art .plq{position:absolute;left:50%;bottom:-50px;transform:translateX(-50%);white-space:nowrap;font:500 13px/1 'Manrope',sans-serif;letter-spacing:.28em;color:#EEF0FF;background:rgba(7,3,31,.75);border:1px solid rgba(205,189,255,.4);padding:9px 13px;direction:ltr}
 .art .spot{position:absolute;left:50%;top:-280px;width:480px;height:300px;margin-left:-240px;background:radial-gradient(ellipse at 50% 100%,rgba(238,240,255,.24),transparent 70%);pointer-events:none}
+/* ===== gallery as an opt-in full-screen room ===== */
+.gal-modal{position:fixed;inset:0;z-index:55;display:none;background:#07031F}
+.gal-modal.open{display:block}
+.gal-modal .a-stage{position:absolute;inset:0;height:auto;touch-action:none;cursor:grab;--W:1500px;--H:900px;--D:5400px}
+.gal-modal .a-stage.drag{cursor:grabbing}
+.a-room{transform:translateZ(var(--cam,0px)) rotateY(calc(var(--amx,0) * 6deg)) rotateX(calc(var(--amy,0) * -3deg))!important}
+/* planes are drawn small and scaled up ×4: far less memory on phones */
+.plane{background-size:100% 100%,100% 100%,45px 42.5px,45px 42.5px!important;background-image:radial-gradient(ellipse at 30% 40%,rgba(124,77,219,.28),transparent 45%),radial-gradient(ellipse at 75% 60%,rgba(59,92,196,.25),transparent 40%),linear-gradient(rgba(220,210,255,.5) .6px,transparent .6px),linear-gradient(90deg,rgba(220,210,255,.5) .6px,transparent .6px)!important}
+.p-floor{width:calc(var(--W) / 4);height:calc(var(--D) / 4);transform:translate(-50%,-50%) translateY(calc(var(--H) / 2)) translateZ(calc(var(--D) / -2)) rotateX(90deg) scale(4)!important}
+.p-ceil{width:calc(var(--W) / 4);height:calc(var(--D) / 4);transform:translate(-50%,-50%) translateY(calc(var(--H) / -2)) translateZ(calc(var(--D) / -2)) rotateX(90deg) scale(4)!important}
+.p-left{width:calc(var(--D) / 4);height:calc(var(--H) / 4);transform:translate(-50%,-50%) translateX(calc(var(--W) / -2)) translateZ(calc(var(--D) / -2)) rotateY(90deg) scale(4)!important}
+.p-right{width:calc(var(--D) / 4);height:calc(var(--H) / 4);transform:translate(-50%,-50%) translateX(calc(var(--W) / 2)) translateZ(calc(var(--D) / -2)) rotateY(-90deg) scale(4)!important}
+.p-back{width:calc(var(--W) / 4);height:calc(var(--H) / 4);padding:0!important;transform:translate(-50%,-50%) translateZ(calc(var(--D) * -1)) scale(4)!important;background-image:radial-gradient(ellipse at 50% 60%,rgba(205,189,255,.25),transparent 55%),radial-gradient(circle,transparent,transparent),linear-gradient(rgba(220,210,255,.5) .6px,transparent .6px),linear-gradient(90deg,rgba(220,210,255,.5) .6px,transparent .6px)!important}
+.art.w3d{position:absolute;left:0;top:0}
+.g-close{position:absolute;top:18px;left:18px;z-index:6}
+.g-title{position:absolute;top:22px;left:0;right:0;z-index:5;display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:none}
+.g-bot{position:absolute;bottom:22px;left:0;right:0;z-index:5;display:flex;flex-direction:column;align-items:center;gap:12px;pointer-events:none}
+.g-bot .a-nav{pointer-events:auto}
+.g-prog{width:220px;height:1px;background:rgba(238,240,255,.2)}
+.g-prog span{display:block;height:100%;background:var(--pearl);width:0}
+button.enter{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:10px;margin-top:40px;min-height:52px;padding:0 30px;border-radius:999px;border:1px solid rgba(205,189,255,.7);color:var(--pearl);background:rgba(74,35,145,.45);font-size:16px;transition:background .3s,box-shadow .3s}
+button.enter:hover,button.enter:focus-visible{background:rgba(124,77,219,.6);box-shadow:0 0 40px rgba(124,77,219,.5)}
+.world-en{margin-top:28px!important}
+/* KOUN frames with real works */
+.frame .cv{position:relative;overflow:hidden}
+.frame .cv img,.frame .cv video{position:absolute;inset:9px;width:calc(100% - 18px);height:calc(100% - 18px);object-fit:cover;display:block}
+.frame{width:clamp(150px,15vw,230px)!important}
+.lb-cv video{width:100%;height:100%;object-fit:contain;display:block}
+@media(max-width:760px){.frame .cv{-webkit-box-reflect:unset!important}.showcase,.glass,.holo,.tile{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}}
 </style>
 </head>
 <body>
@@ -479,29 +508,12 @@ body{background:#07082A}
 <div class="reveal"><svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="20" r="12"/><path d="M18 13v7l5 3M14 4h8"/></svg><b>وقت محدد</b><span>لكل قطعة مزاد ينتهي في وقت محدد.</span></div>
 <div class="reveal"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M8 30h20M12 26h12M18 6l4 8 9 1-7 6 2 9-8-5-8 5 2-9-7-6 9-1Z"/></svg><b>أعلى سعر يفوز</b><span>عند انتهاء الوقت تروح القطعة لصاحب أعلى مزايدة.</span></div>
 </div>
-<a class="enter" href="#auction">ادخل المعرض ↓</a>
+<button class="enter" type="button" id="openGal">ادخل المعرض ←</button>
 <p style="margin:22px 0 0;font-size:13px;color:var(--silver)">القطع المعروضة أمثلة توضيحية لفكرة المزاد.</p>
 </div>
 </section>
 
-<!-- AUCTION — walk-through gallery -->
-<section class="w-auc" id="auction" aria-label="معرض المزاد — مرّر للتجوّل">
-<div class="a-stage" id="aStage">
-<div class="a-room" id="aRoom">
-<div class="plane p-floor" aria-hidden="true"></div>
-<div class="plane p-ceil" aria-hidden="true"></div>
-<div class="plane p-left" id="wallL"></div>
-<div class="plane p-right" id="wallR"></div>
-<div class="plane p-back" id="wallB"></div>
-</div>
-<div class="a-ui" style="top:84px;opacity:calc(1 - var(--p,0) * 3)">
-<span class="pill"><span class="live" aria-hidden="true"></span>قيد التنفيذ</span>
-<p class="kick" style="margin:0;color:#E6E2FA">THE RARE COLLECTION</p>
-</div>
-<div class="a-ui" style="bottom:46px"><div class="a-nav"><button class="ghost" type="button" id="aPrev" aria-label="القطعة السابقة">→ السابق</button><span style="font-size:13px;color:var(--silver);padding:0 6px">مرّر أو استخدم الأسهم</span><button class="ghost" type="button" id="aNext" aria-label="القطعة التالية">التالي ←</button></div></div>
-<div class="progress" aria-hidden="true"><span></span></div>
-</div>
-</section>
+
 
 <!-- WORLD 2 — MEDIA -->
 <section class="w-med" id="media">
@@ -610,6 +622,13 @@ body{background:#07082A}
 </section>
 </main>
 
+<div class="gal-modal" id="galModal" role="dialog" aria-modal="true" aria-label="معرض المزاد">
+<div class="a-stage" id="aStage"><div class="a-room" id="aRoom"></div></div>
+<button class="ghost g-close" type="button" id="closeGal">إغلاق ✕</button>
+<div class="g-title"><span class="pill"><span class="live" aria-hidden="true"></span>قيد التنفيذ</span><p class="kick" style="margin:0;color:#E6E2FA">THE RARE COLLECTION</p></div>
+<div class="g-bot"><div class="a-nav"><button class="ghost" type="button" id="aPrev" aria-label="القطعة السابقة">→ السابق</button><span style="font-size:13px;color:var(--silver);padding:0 6px">اسحب أو استخدم الأسهم</span><button class="ghost" type="button" id="aNext" aria-label="القطعة التالية">التالي ←</button></div><div class="g-prog" aria-hidden="true"><span id="gProg"></span></div></div>
+</div>
+
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lbT">
 <div class="lb-box">
 <button class="lb-cv" type="button" id="lbCv" aria-label="تكبير"><span class="latin" id="lbT" style="font-size:15px;letter-spacing:.2em">LOT</span><span id="lbS" style="font-size:14px"></span></button>
@@ -623,6 +642,9 @@ body{background:#07082A}
 
 <script>
 {
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+scrollTo(0, 0); addEventListener('load', () => scrollTo(0, 0));
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const root = document.documentElement;
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -642,7 +664,7 @@ $$('.reveal').forEach(el => revIO.observe(el));
 /* canvas helpers */
 const vis = new Map();
 const visIO = new IntersectionObserver(es => es.forEach(en => vis.set(en.target, en.isIntersecting)));
-function fit(c){ const r = c.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2); c.width = Math.max(1, r.width * d); c.height = Math.max(1, r.height * d); const x = c.getContext('2d'); x.setTransform(d,0,0,d,0,0); return {x, w:r.width, h:r.height}; }
+function fit(c){ const r = c.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, innerWidth < 760 ? 1.25 : 2); c.width = Math.max(1, r.width * d); c.height = Math.max(1, r.height * d); const x = c.getContext('2d'); x.setTransform(d,0,0,d,0,0); return {x, w:r.width, h:r.height}; }
 
 /* HERO: threads between cubes */
 const heroCv = $('#heroCv'); let H = fit(heroCv); visIO.observe(heroCv);
@@ -714,7 +736,7 @@ function drawFly(t){
 
 /* lightbox (lots + paintings) */
 const lb = $('#lb'), lbCv = $('#lbCv'); let lbList = [], lbI = 0, lbReturn = null;
-function lbShow(){ const it = lbList[lbI]; $('#lbT').textContent = it.t; $('#lbS').textContent = it.s; lbCv.classList.remove('zoom'); lbCv.style.backgroundImage = it.src ? `url('${it.src}')` : ''; lbCv.style.backgroundSize = it.cut ? 'contain' : 'cover'; lbCv.style.backgroundRepeat = 'no-repeat'; lbCv.style.backgroundPosition = 'center'; $('#lbT').hidden = !!it.src; $('#lbS').hidden = !!it.src; }
+function lbShow(){ const it = lbList[lbI]; const ov = lbCv.querySelector('video'); if (ov) ov.remove(); if (it.vid){ lbCv.insertAdjacentHTML('afterbegin', `<video src="${it.vid}" muted loop playsinline autoplay style="position:absolute;inset:14px;width:calc(100% - 28px);height:calc(100% - 28px);object-fit:cover"></video>`); } $('#lbT').textContent = it.t; $('#lbS').textContent = it.s; lbCv.classList.remove('zoom'); lbCv.style.position = 'relative'; lbCv.style.backgroundImage = it.src && !it.vid ? `url('${it.src}')` : ''; lbCv.style.backgroundSize = it.cut ? 'contain' : 'cover'; lbCv.style.backgroundRepeat = 'no-repeat'; lbCv.style.backgroundPosition = 'center'; $('#lbT').hidden = !!it.src; $('#lbS').hidden = !!it.src; }
 function openLB(list, i, from){ lbList = list; lbI = i; lbReturn = from; lbShow(); lb.classList.add('open'); $('#lbClose').focus(); }
 function closeLB(){ lb.classList.remove('open'); if (lbReturn) lbReturn.focus(); }
 $('#lbClose').addEventListener('click', closeLB);
@@ -723,66 +745,70 @@ $('#lbNext').addEventListener('click', () => { lbI = (lbI + 1) % lbList.length; 
 lbCv.addEventListener('click', () => lbCv.classList.toggle('zoom'));
 lb.addEventListener('click', e => { if (e.target === lb) closeLB(); });
 lb.addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); });
-/* AUCTION — museum gallery: framed works on the walls, sculptural pieces on gold stands */
-const small = innerWidth < 760, FY = small ? 410 : 450, AX = small ? 170 : 300;
+/* AUCTION — gallery room: built when opened, removed when closed */
+const galModal = $('#galModal'), aStage = $('#aStage'), room = $('#aRoom');
 const LOTS = [
   {wall:'L', at:500,  top:170, w:360, src:'media/lots/eyes.jpg', ar:1.33, tilt:-2},
   {wall:'R', at:900,  top:130, w:320, src:'media/lots/redshoes.jpg', ar:1.5, tilt:2},
-  {ped:true, x:-AX, z:-1350, w:240, ar:1, ph:160, src:'media/lots/butterfly.webp'},
+  {ped:true, side:-1, z:-1350, w:240, ar:1, ph:160, src:'media/lots/butterfly.webp'},
   {wall:'L', at:1700, top:120, w:280, src:'media/lots/melting.jpg', ar:1.78, tilt:2.5},
   {wall:'R', at:2050, top:190, w:400, src:'media/lots/waterframe.jpg', ar:1.23, tilt:-2.5},
-  {ped:true, x:AX, z:-2500, w:220, ar:1.33, ph:180, src:'media/lots/mermaid.webp'},
+  {ped:true, side:1, z:-2500, w:220, ar:1.33, ph:180, src:'media/lots/mermaid.webp'},
   {wall:'L', at:2900, top:170, w:380, src:'media/lots/clock.jpg', ar:1.23, tilt:-1.5},
   {wall:'R', at:3200, top:150, w:330, src:'media/lots/volta.jpg', ar:1.41, tilt:2},
-  {ped:true, x:-AX, z:-3600, w:230, ar:1.33, ph:170, src:'media/lots/pearl.webp'},
+  {ped:true, side:-1, z:-3600, w:230, ar:1.33, ph:170, src:'media/lots/pearl.webp'},
   {wall:'L', at:4050, top:160, w:360, src:'media/lots/jelly.jpg', ar:1.33, tilt:2},
   {wall:'R', at:4350, top:140, w:320, src:'media/lots/ballerinas.jpg', ar:1.5, tilt:-2},
-  {ped:true, x:AX, z:-4500, w:190, ar:1.49, ph:170, src:'media/lots/wave.webp'},
+  {ped:true, side:1, z:-4500, w:190, ar:1.49, ph:170, src:'media/lots/wave.webp'},
   {wall:'L', at:4800, top:190, w:340, src:'media/lots/planets.jpg', ar:1.3, tilt:-2},
-  {ped:true, x:-AX*.8, z:-5000, w:210, ar:1, ph:200, src:'media/lots/spiral.webp'}
+  {ped:true, side:-.8, z:-5000, w:210, ar:1, ph:200, src:'media/lots/spiral.webp'}
 ];
 const lotList = LOTS.map((l,i) => ({t:'LOT ' + String(i+1).padStart(2,'0'), s:'مثال توضيحي · المزاد قيد التنفيذ', src:l.src, cut:!!l.ped}));
 lotList.push({t:'THE RAREST', s:'أندر الأعمال · مثال توضيحي', src:'media/lots/statue.jpg'});
-const room = $('#aRoom'), wallH = {L:'', R:''};
-LOTS.forEach((l,i) => {
-  const name = lotList[i].t;
-  if (l.ped){
-    const b = document.createElement('button'); b.type = 'button'; b.className = 'pc'; b.dataset.i = i; b.setAttribute('aria-label', name);
-    b.style.transform = `translate3d(${l.x}px,${FY}px,${l.z}px)`;
-    const h = Math.round(l.w * l.ar);
-    b.innerHTML = `<span class="unit"><img class="piece" src="${l.src}" alt="" style="width:${l.w}px;height:${h}px;object-fit:contain"><span class="ped"><span class="cap gold"></span><span class="cap2 gold"></span><span class="shaft" style="--ph:${l.ph}px"></span><span class="base gold"></span><span class="base2 gold"></span></span><span class="plq gold">${name}</span><span class="floorglow" aria-hidden="true"></span></span>`;
-    room.appendChild(b);
-  } else {
-    const h = Math.round(l.w * l.ar), side = l.wall === 'L' ? 'left' : 'right';
-    wallH[l.wall] += `<button class="art" type="button" data-i="${i}" aria-label="${name}" style="${side}:${l.at}px;top:${l.top}px;width:${l.w + 28}px;height:${h + 28}px;transform:rotate(${l.tilt}deg)"><span class="spot" aria-hidden="true"></span><span class="pic" style="background-image:url('${l.src}')"></span><span class="plq">${name}</span></button>`;
-  }
-});
-$('#wallL').innerHTML = wallH.L; $('#wallR').innerHTML = wallH.R;
-$('#wallB').innerHTML = `<button class="art" type="button" data-i="${LOTS.length}" aria-label="THE RAREST" style="position:relative;width:330px;height:560px"><span class="spot" aria-hidden="true"></span><span class="pic" style="background-image:url('media/lots/statue.jpg')"></span><span class="plq">THE RAREST</span></button>`;
-const PL = [
-  {x:-560,y:-300,z:-1000,r:110, c1:'#C9A6FF', c2:'#4A2391', ring:1},
-  {x:540, y:-320,z:-2000,r:70,  c1:'#9DB6FF', c2:'#142A6B'},
-  {x:-80, y:-360,z:-2800,r:50,  c1:'#F3C6FF', c2:'#7C4DDB'},
-  {x:560, y:-290,z:-3800,r:130, c1:'#D2B8FF', c2:'#3A1C78', ring:1},
-  {x:-520,y:-320,z:-4700,r:80,  c1:'#A9C0FF', c2:'#142A6B'}
-];
-room.insertAdjacentHTML('beforeend', PL.map((p,i) => `<span class="planet glit ${p.ring ? 'ringed' : ''}" aria-hidden="true" style="width:${p.r}px;height:${p.r}px;margin:${-p.r/2}px 0 0 ${-p.r/2}px;--c1:${p.c1};--c2:${p.c2};transform:translate3d(${p.x}px,${p.y}px,${p.z}px);animation-delay:${-i*.4}s"></span>`).join(''));
-$$('#aRoom [data-i]').forEach(b => b.addEventListener('click', () => openLB(lotList, +b.dataset.i, b)));
-const aucSec = $('#auction'), aStage = $('#aStage'); visIO.observe(aucSec);
-let aucT = 0, aucC = 0, amx = 0, amy = 0;
-function aucTarget(){ const r = aucSec.getBoundingClientRect(), total = r.height - innerHeight; aucT = total > 0 ? Math.min(1, Math.max(0, -r.top/total)) : 0; }
-function stepAucSmooth(){
-  aucC += (aucT - aucC) * .06; if (Math.abs(aucT - aucC) < .0003) aucC = aucT;
+let galOpen = false, cam = 0, camT = 0, amx = 0, amy = 0, gdrag = false, gy = 0, gx = 0, gmoved = 0, gReturn = null;
+const CAM_MAX = 4500;
+function buildRoom(){
+  const sm = innerWidth < 760, W = sm ? 820 : 1500, H = sm ? 820 : 900, FY = H/2, AX = sm ? 170 : 300;
+  aStage.style.setProperty('--W', W + 'px'); aStage.style.setProperty('--H', H + 'px');
+  let html = '<div class="plane p-floor"></div><div class="plane p-ceil"></div><div class="plane p-left"></div><div class="plane p-right"></div><div class="plane p-back"></div>';
+  LOTS.forEach((l,i) => {
+    const name = lotList[i].t;
+    if (l.ped){
+      const h = Math.round(l.w * l.ar);
+      html += `<button class="pc" type="button" data-i="${i}" aria-label="${name}" style="transform:translate3d(${l.side*AX}px,${FY}px,${l.z}px)"><span class="unit"><img class="piece" src="${l.src}" alt="" style="width:${l.w}px;height:${h}px;object-fit:contain"><span class="ped"><span class="cap gold"></span><span class="cap2 gold"></span><span class="shaft" style="--ph:${l.ph}px"></span><span class="base gold"></span><span class="base2 gold"></span></span><span class="plq gold">${name}</span><span class="floorglow" aria-hidden="true"></span></span></button>`;
+    } else {
+      const h = Math.round(l.w * l.ar), bw = l.w + 28, bh = h + 28, x = l.wall === 'L' ? -W/2 + 3 : W/2 - 3, y = -H/2 + l.top + bh/2, z = -(l.at + bw/2), ry = l.wall === 'L' ? 90 : -90;
+      html += `<button class="art w3d" type="button" data-i="${i}" aria-label="${name}" style="width:${bw}px;height:${bh}px;margin:${-bh/2}px 0 0 ${-bw/2}px;transform:translate3d(${x}px,${y}px,${z}px) rotateY(${ry}deg) rotate(${l.tilt}deg)"><span class="spot" aria-hidden="true"></span><span class="pic" style="background-image:url('${l.src}')"></span><span class="plq">${name}</span></button>`;
+    }
+  });
+  html += `<button class="art w3d" type="button" data-i="${LOTS.length}" aria-label="THE RAREST" style="width:320px;height:540px;margin:-270px 0 0 -160px;transform:translate3d(0,${H/2 - 330}px,-5390px)"><span class="spot" aria-hidden="true"></span><span class="pic" style="background-image:url('media/lots/statue.jpg')"></span><span class="plq">THE RAREST</span></button>`;
+  [{x:-.37,y:-300,z:-1000,r:110,c1:'#C9A6FF',c2:'#4A2391',ring:1},{x:.36,y:-320,z:-2000,r:70,c1:'#9DB6FF',c2:'#142A6B'},{x:.37,y:-290,z:-3800,r:130,c1:'#D2B8FF',c2:'#3A1C78',ring:1},{x:-.35,y:-320,z:-4700,r:80,c1:'#A9C0FF',c2:'#142A6B'}]
+    .forEach((p,i) => html += `<span class="planet glit ${p.ring ? 'ringed' : ''}" aria-hidden="true" style="width:${p.r}px;height:${p.r}px;margin:${-p.r/2}px 0 0 ${-p.r/2}px;--c1:${p.c1};--c2:${p.c2};transform:translate3d(${p.x*W}px,${p.y}px,${p.z}px);animation-delay:${-i*.4}s"></span>`);
+  room.innerHTML = html;
+  room.querySelectorAll('[data-i]').forEach(b => b.addEventListener('click', e => { if (gmoved > 10) return; openLB(lotList, +b.dataset.i, b); }));
+}
+const stops = [0, ...LOTS.map(l => Math.min(CAM_MAX, Math.max(0, (l.ped ? -l.z : l.at + l.w/2) - 750))), CAM_MAX].sort((a,b) => a-b);
+function goStop(dir){ let t = dir > 0 ? stops.find(x => x > camT + 20) : [...stops].reverse().find(x => x < camT - 20); camT = t === undefined ? (dir > 0 ? CAM_MAX : 0) : t; }
+function openGal(e){ gReturn = e && e.currentTarget; buildRoom(); cam = camT = 0; galModal.classList.add('open'); document.documentElement.style.overflow = 'hidden'; galOpen = true; $('#closeGal').focus(); }
+function closeGal(){ galOpen = false; galModal.classList.remove('open'); room.innerHTML = ''; document.documentElement.style.overflow = ''; if (gReturn) gReturn.focus(); }
+$('#openGal').addEventListener('click', openGal);
+$('#closeGal').addEventListener('click', closeGal);
+$('#aNext').addEventListener('click', () => goStop(1)); $('#aPrev').addEventListener('click', () => goStop(-1));
+galModal.addEventListener('wheel', e => { e.preventDefault(); camT = Math.min(CAM_MAX, Math.max(0, camT + e.deltaY * 1.6)); }, {passive:false});
+aStage.addEventListener('pointerdown', e => { gdrag = true; gmoved = 0; gy = e.clientY; gx = e.clientX; aStage.classList.add('drag'); });
+addEventListener('pointermove', e => { if (!gdrag) return; const dy = e.clientY - gy, dx = e.clientX - gx; gy = e.clientY; gx = e.clientX; gmoved += Math.abs(dx) + Math.abs(dy); camT = Math.min(CAM_MAX, Math.max(0, camT - (dy + dx) * 3)); });
+['pointerup','pointercancel'].forEach(ev => addEventListener(ev, () => { gdrag = false; aStage.classList.remove('drag'); }));
+addEventListener('keydown', e => { if (!galOpen || lb.classList.contains('open')) return;
+  if (e.key === 'Escape') closeGal();
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp'){ e.preventDefault(); goStop(1); }
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown'){ e.preventDefault(); goStop(-1); } });
+function stepGal(){
+  cam += (camT - cam) * .07;
   const tx = mouse.x > -9000 ? (mouse.x / innerWidth * 2 - 1) : 0, ty = mouse.y > -9000 ? (mouse.y / innerHeight * 2 - 1) : 0;
   amx += (tx - amx) * .04; amy += (ty - amy) * .04;
-  aStage.style.setProperty('--p', aucC.toFixed(4)); aStage.style.setProperty('--amx', amx.toFixed(3)); aStage.style.setProperty('--amy', amy.toFixed(3));
+  aStage.style.setProperty('--cam', cam.toFixed(1) + 'px'); aStage.style.setProperty('--amx', amx.toFixed(3)); aStage.style.setProperty('--amy', amy.toFixed(3));
+  $('#gProg').style.width = (cam / CAM_MAX * 100).toFixed(1) + '%';
 }
-addEventListener('scroll', aucTarget, {passive:true}); aucTarget(); aucC = aucT; stepAucSmooth();
-const depth = l => l.ped ? -l.z : l.at + l.w/2;
-const stops = [0, ...LOTS.map(l => Math.min(1, Math.max(0, (depth(l) - 750) / 4500))), 1].sort((a,b) => a-b);
-function goStop(dir){ const cur = aucT; let t = dir > 0 ? stops.find(x => x > cur + .01) : [...stops].reverse().find(x => x < cur - .01); if (t === undefined) t = dir > 0 ? 1 : 0; const top = aucSec.getBoundingClientRect().top + scrollY; scrollTo({top: top + t * (aucSec.offsetHeight - innerHeight), behavior:'smooth'}); }
-$('#aNext').addEventListener('click', () => goStop(1)); $('#aPrev').addEventListener('click', () => goStop(-1));
-addEventListener('keydown', e => { const r = aucSec.getBoundingClientRect(); if (r.top > 1 || r.bottom < innerHeight - 1 || lb.classList.contains('open')) return; if (e.key === 'ArrowLeft'){ e.preventDefault(); goStop(1); } if (e.key === 'ArrowRight'){ e.preventDefault(); goStop(-1); } });
 
 /* COACH — holographic turntable */
 const sc = $('#showcase'), scRot = $('#scRot'), disc = $('#scDisc'), scCv = $('#scCv'); visIO.observe(sc);
@@ -813,9 +839,17 @@ const vCoach = $('#vCoach');
 new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting && !reduce) vCoach.play().catch(()=>{}); else vCoach.pause(); }), {threshold:.4}).observe(vCoach);
 $('#coachMute').addEventListener('click', e => { vCoach.muted = !vCoach.muted; if (!vCoach.muted) vCoach.play().catch(()=>{}); e.currentTarget.setAttribute('aria-pressed', !vCoach.muted); e.currentTarget.setAttribute('aria-label', vCoach.muted ? 'تشغيل الصوت' : 'كتم الصوت'); $('#muteX').style.display = vCoach.muted ? '' : 'none'; });
 
-const paintings = ['لوحة ١','لوحة ٢','لوحة ٣','لوحة ٤','لوحة ٥','لوحة ٦'].map(t => ({t, s:'كون · KOUN'}));
-$('#arc').innerHTML = paintings.map((p,i) => `<button class="frame" type="button" data-i="${i}" aria-label="افتح ${p.t}"><span class="cv" aria-hidden="true"></span><span>${p.t}</span></button>`).join('');
+const paintings = [
+  {t:'كون · ٠١', src:'media/koun/k1.jpg'},
+  {t:'كون · ٠٢', src:'media/koun/k2.jpg'},
+  {t:'كون · ٠٣', src:'media/koun/k3.jpg'},
+  {t:'كون · ٠٤', vid:'media/koun/k5.mp4', src:'media/koun/k5.jpg'},
+  {t:'كون · ٠٥', vid:'media/koun/k6.mp4', src:'media/koun/k6.jpg'},
+  {t:'كون · ٠٦', vid:'media/koun/k7.mp4', src:'media/koun/k7.jpg'}
+].map(p => ({...p, s:'KOUN · كون'}));
+$('#arc').innerHTML = paintings.map((p,i) => `<button class="frame" type="button" data-i="${i}" aria-label="افتح ${p.t}"><span class="cv">${p.vid ? `<video src="${p.vid}" poster="${p.src}" muted loop playsinline preload="none" aria-hidden="true"></video>` : `<img src="${p.src}" alt="" loading="lazy">`}</span><span>${p.t}</span></button>`).join('');
 $$('#arc .frame').forEach(b => b.addEventListener('click', () => openLB(paintings, +b.dataset.i, b)));
+new IntersectionObserver(es => es.forEach(en => $$('#arc video').forEach(v => en.isIntersecting && !reduce ? v.play().catch(()=>{}) : v.pause())), {threshold:.2}).observe($('#arc'));
 
 /* RU'YA video: eye → man → glasses (one clip) */
 const stage = $('#stage'), vR = $('#vRuya');
@@ -879,7 +913,7 @@ function loop(t){
   if (vis.get(heroCv)) drawHero(t);
   if (vis.get(netCv)) drawNet(t);
   if (vis.get(flyCv)) drawFly(t);
-  if (vis.get(aucSec)) stepAucSmooth();
+  if (galOpen) stepGal();
   if (vis.get(sc)) stepShowcase(t);
 }
 if (reduce){ drawSky(0); drawHero(0); drawNet(0); drawFly(0); } else requestAnimationFrame(loop);
